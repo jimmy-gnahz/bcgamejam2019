@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody player;
-
+    private Quaternion initialRotation;
 
     //for walking
     public float groundSpeed;
@@ -16,13 +16,15 @@ public class PlayerController : MonoBehaviour
     public float accelration;
     public float fallingSpeed;
 
+
     public bool onGround=true;
 
     // Start is called before the first frame update
     void Start()
     {
+        
         player = GetComponent<Rigidbody>();
-
+        initialRotation = player.rotation;
     }
 
     private void FixedUpdate()
@@ -61,16 +63,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("floor"))//landing
+        if (collision.gameObject.tag.Equals("floor")&&!onGround)//landing
         {
             onGround = true;
             player.useGravity = true ;
+            player.transform.Rotate(-90, 0, 0);
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("floor"))// taking off
+        if (collision.gameObject.tag.Equals("Roof"))// taking off
         {
             
             player.useGravity = false;
