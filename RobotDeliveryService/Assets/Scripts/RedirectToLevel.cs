@@ -11,7 +11,7 @@ public class RedirectToLevel : MonoBehaviour
 
     void Update()
     {
-        if (redirectToLevel == 1)
+        if (redirectToLevel == 2)
         {
             SceneManager.LoadScene(redirectToLevel);
         }

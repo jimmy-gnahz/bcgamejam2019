@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuFunction : MonoBehaviour
 {
 
-    //public AudioSource buttonPress;
+    public AudioSource buttonPress;
     //public GameObject bestScore;
 
     private void Start()
@@ -17,19 +17,20 @@ public class MainMenuFunction : MonoBehaviour
 
     public void PlayGame()
     {
-        //buttonPress.Play();
-        RedirectToLevel.redirectToLevel = 1;
-        SceneManager.LoadScene(1);
+        buttonPress.Play();
+        RedirectToLevel.redirectToLevel = 2;
+        SceneManager.LoadScene(2);
     }
 
     public void QuitGame()
     {
+        buttonPress.Play();
         Application.Quit();
     }
 
-    //public void PlayCreds()
-    //{
-    //    buttonPress.Play();
-    //    SceneManager.LoadScene(4);
-    //}
+    public void HighScore()
+    {
+        buttonPress.Play();
+        SceneManager.LoadScene(3);
+    }
 }
