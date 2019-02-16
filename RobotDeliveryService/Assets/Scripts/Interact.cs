@@ -14,7 +14,7 @@ public class Interact : MonoBehaviour
        
         _Distance = PlayerCasting.Distancefromtarget;
 
-        if (_Distance <= 1)
+        if (_Distance <= 2 && _Player.transform.position.y < 1.5 )
         {
             _CommandDisplay.SetActive(true);
             _CommandText.SetActive(true);
@@ -28,12 +28,12 @@ public class Interact : MonoBehaviour
 
         if (Input.GetButtonDown("Action"))
         {
-            if (_Distance <= 1)
+            if (_Distance <= 2 && _Player.transform.position.y < 1.5)
             {
                 _CommandDisplay.SetActive(false);
                 _CommandText.SetActive(false);
-                _Player.transform.Translate(Vector3.up * 7);
-                _Player.transform.Translate(Vector3.forward * 1);
+                _Player.transform.Translate(Vector3.up *7);
+                _Player.transform.Translate(Vector3.forward *2);
             }
         }
     }
