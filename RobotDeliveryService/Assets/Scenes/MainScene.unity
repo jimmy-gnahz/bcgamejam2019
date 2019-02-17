@@ -1204,8 +1204,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059158878}
-  m_LocalRotation: {x: 0.10995841, y: -7.770698e-15, z: 7.0240885e-14, w: 0.99393624}
-  m_LocalPosition: {x: 0, y: 2.5, z: -5}
+  m_LocalRotation: {x: 0.10995848, y: 0.000000017628375, z: -0.0000000019501383, w: 0.99393624}
+  m_LocalPosition: {x: 0, y: 30.4, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 803352163}
@@ -2000,7 +2000,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 39137443e9bcb4541a30f3e79fd77f8f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7a455ea70db76094bb3254f34115e034, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2645,8 +2645,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591798098}
-  m_LocalRotation: {x: 0.10995841, y: -7.770698e-15, z: 7.0240885e-14, w: 0.99393624}
-  m_LocalPosition: {x: 0, y: 2.5, z: -5}
+  m_LocalRotation: {x: 0.10995848, y: 0.000000017628375, z: -0.0000000019501383, w: 0.99393624}
+  m_LocalPosition: {x: 0, y: 30.4, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1378988794}
@@ -3385,10 +3385,10 @@ MonoBehaviour:
   EnergyCostGlide: 1
   CrashDamage: 10
   groundSpeed: 3
-  speed: 5
+  speed: 6
   rotateSpeed: 2
   accelration: 1
-  fallingSpeed: 1
+  fallingSpeed: 2.3
   isSuiside: 0
   isCrushed: 0
   robot: {fileID: 1167054158}
@@ -3461,7 +3461,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918461650}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 28.4, z: 17}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1699402953}
