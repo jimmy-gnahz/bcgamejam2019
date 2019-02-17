@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         player = GetComponent<Rigidbody>();
         initialRotation = player.rotation;
     }
@@ -40,10 +39,22 @@ public class PlayerController : MonoBehaviour
             transform.localPosition += velocityVertical * Time.fixedDeltaTime;
             velocity2d = new Vector3(0,  speed * v,0);
             transform.Rotate( 0,0,-h * rotateSpeed);
+
             if (v > 0)
             {
                 velocity2d = transform.TransformDirection(velocity2d);
                 transform.localPosition += velocity2d * Time.fixedDeltaTime;
+            }
+
+            if (h > 0)
+            {
+                Debug.Log(transform.eulerAngles.y);
+                transform.Rotate(0, 1, 0);
+                if (transform.eulerAngles.y > 300)
+                {
+                    Debug.Log("in here");
+                    transform.Rotate(0, 0, 1);
+                }
                 
             }
 
