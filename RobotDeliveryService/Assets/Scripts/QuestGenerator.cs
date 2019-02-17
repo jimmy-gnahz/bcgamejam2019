@@ -4,35 +4,33 @@ using UnityEngine;
 
 public class QuestGenerator : MonoBehaviour
 {
-    public int Trigger;
-    public GameObject Player;
-    public GameObject[] QuestList;
-    public GameObject UIquest;
-    public GameObject Questdisplayname;
-    public bool _Talk = false;
-    public bool _questing = false;
+    public GameObject Player; 
+    public GameObject[] QuestList; 
+    public GameObject UIquest; // Current Quest
+    public GameObject Questdisplayname; 
+    public bool _Talk = false; // is talking to person, a panel UI shows up
+    public bool _questing = false; // doing quests?
     // Update is called once per frame
+
+    private int firstQuestTriggerTime = 140;
+
     void Update()
     {
-        Trigger++;
-        if(Trigger % 500 == 0 && !_questing)
+        if(GlobalTimer.theSeconds == firstQuestTriggerTime && !_questing)
         {
-           // GameObject UIquest = QuestList[Random.Range(0, QuestList.Length -1)];
-            //quest.SetActive(true);
-            UIquest.SetActive(true);
-            _Talk = true;
+           // New Quest Initialize
         }
 
-        if (Input.GetButtonDown("Accept") && _Talk)
-        {
-            AcceptQuest();
-            _Talk = false;
-        }
-        if (Input.GetButtonDown("Return") && _Talk)
-        {
-            DeniedQuest();
-            _Talk = false;
-        }
+        //if (Input.GetButtonDown("Accept") && _Talk)
+        //{
+        //    AcceptQuest();
+        //    _Talk = false;
+        //}
+        //if (Input.GetButtonDown("Return") && _Talk)
+        //{
+        //    DeniedQuest();
+        //    _Talk = false;
+        //}
 
     }
 
@@ -41,7 +39,6 @@ public class QuestGenerator : MonoBehaviour
         UIquest.SetActive(false);
         Questdisplayname.SetActive(true);
         _questing = true;
-     
     }
 
     void DeniedQuest()

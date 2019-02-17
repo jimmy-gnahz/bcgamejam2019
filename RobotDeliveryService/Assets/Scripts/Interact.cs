@@ -10,11 +10,26 @@ public class Interact : MonoBehaviour
     public GameObject _CommandText;
     public GameObject _UIquest;
     public GameObject _Player;
-    public GameObject _Object;
     public bool _Talk = false;
-    public GameObject _UIQuestinfo;
+
+    // Building ID in range of 1000-9999.
+    // Quest Giving NPC: ID in range of 0 - 99.
+    // Receiving NPC: ID in range of 100 - 199
+    public int ID; 
+
+    public GameObject _UIQuestinfo; 
     public GameObject _UIQuestname;
     public GameObject _Questdisplayname;
+
+    private GameObject _Object;
+
+    public GameObject[] buttons;
+
+    private void Start()
+    {
+        _Object = this.gameObject;
+    }
+
     void Update()
     {
 
@@ -32,20 +47,12 @@ public class Interact : MonoBehaviour
         }
     }
 
-
-    void getQuest()
-    {
-        _UIQuestinfo.GetComponent<Text>().text = "My first quest =D";
-        _UIQuestinfo.GetComponent<Text>().text = "Here please deliver this to somebody, thank you";
-
-    }
-
     public void AcceptQuest()
     {
         _UIquest.SetActive(false);
         _Questdisplayname.GetComponent<Text>().text = "Quest: " + _UIQuestinfo.GetComponent<Text>().text;
         _Questdisplayname.SetActive(true);
-        QuestManager.ActiveQuestNumber = 1;
+        QuestManager.isTakingQuest = true;
     }
 
     void DeniedQuest()
@@ -56,6 +63,7 @@ public class Interact : MonoBehaviour
     }
     void OnMouseOver()
     {
+        //Cannot talk to someone on a rooftop or high ground
         if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
         {
             if (_Object.name.Contains("NPC"))
@@ -80,18 +88,46 @@ public class Interact : MonoBehaviour
             if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
             {
 
-                if (_Object.name.Contains("NPC"))
-                {
-                     getQuest();
-                    _UIquest.SetActive(true);
-                    _Talk = true;
 
-                }
-                else if (_Object.name.Contains("Building"))
+                if (_Object.tag.Contains("Building"))
                 {
                     _Player.transform.Translate(Vector3.up * _Object.transform.localScale.y);
                     _Player.transform.Translate(Vector3.forward * _Object.transform.localScale.z);
                 }
+                else
+                {   // Assume object is either building or NPC
+                    _UIquest.SetActive(true);
+                    if(ID >= 100 && ID < 200)
+                    {
+                        foreach (GameObject go in buttons)
+                        {
+                            go.SetActive(false);
+                        }
+                    }
+                    if (ID == 0)    
+                    {   //TODO: Change all this into an array
+                        _UIQuestinfo.GetComponent<Text>().text = "First Quest Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "First Quest Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "First Quest DisplayName Placeholder";
+                        QuestManager.ActiveQuestID = ID;
+                        _Talk = true;
+                    }
+                    else if (ID == 1)
+                    {
+                        ; // Keep going
+                    }
+                    else if (QuestManager.ActiveQuestID + 100 == ID)
+                    {
+                        QuestManager.isTakingQuest = false;
+                        _UIQuestinfo.GetComponent<Text>().text = "First Quest Receiver Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "First Quest Receiver Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "First Quest Receiver DisplayName Placeholder";
+                        // TODO: Give player Energy 
+                        _Talk = true;
+                        QuestManager.rewardPlayer(ID);
+                    }
+                }
+
                 _CommandDisplay.SetActive(false);
                 _CommandText.SetActive(false);
 
@@ -105,8 +141,6 @@ public class Interact : MonoBehaviour
     {
         _CommandText.SetActive(false);
         _CommandDisplay.SetActive(false);
-
-
     }
 
 }

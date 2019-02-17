@@ -37,7 +37,6 @@ public class PlayerController : MonoBehaviour
         initialRotation = player.rotation;
         Energy = MaxEnergy;
         isSuiside = false;
-
     }
 
     private void FixedUpdate()

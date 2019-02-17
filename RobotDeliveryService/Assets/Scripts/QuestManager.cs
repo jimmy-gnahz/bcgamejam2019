@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public static int ActiveQuestNumber;
-    public int InternalQuestNumber;
+    public static int ActiveQuestID; //Giver's ID
+    //public int InternalQuestNumber;
+    public static bool isTakingQuest = false;
+    public static int questsCompleted;
 
     void Update()
     {
-        InternalQuestNumber = ActiveQuestNumber;
+        //InternalQuestNumber = ActiveQuestNumber;
+    }
+
+    public static void rewardPlayer(int ID)
+    {
+        questsCompleted += 1;
+        //increment energy
     }
 }

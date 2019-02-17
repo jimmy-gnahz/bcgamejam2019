@@ -6,6 +6,8 @@ TagManager:
   tags:
   - floor
   - Roof
+  - NPC
+  - Building
   layers:
   - Default
   - TransparentFX
