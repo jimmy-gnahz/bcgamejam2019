@@ -176,6 +176,9 @@ public class PlayerController : MonoBehaviour
 
             playerAnimator.SetBool("isFlying", false);
 			robot.localRotation = Quaternion.Euler(0, -90, 0);
+
+			PlayerGlidingPPChange pp = GetComponent<PlayerGlidingPPChange>();
+			pp.SetIsFlying(false);
 		}
     }
 
@@ -200,7 +203,10 @@ public class PlayerController : MonoBehaviour
 
                 isSuiside = true;
                 playerAnimator.SetBool("isFlying", true);
-            }
+
+				PlayerGlidingPPChange pp = GetComponent<PlayerGlidingPPChange>();
+				pp.SetIsFlying(true);
+			}
             else
             {
                 EnergyTimer = 0;//grace reset on landing and taking off
@@ -211,7 +217,10 @@ public class PlayerController : MonoBehaviour
                 // player.constraints
 
                 playerAnimator.SetBool("isFlying", true);
-            }
+
+				PlayerGlidingPPChange pp = GetComponent<PlayerGlidingPPChange>();
+				pp.SetIsFlying(true);
+			}
 
 
         }
