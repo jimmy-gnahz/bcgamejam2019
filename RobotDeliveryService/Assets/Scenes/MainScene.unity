@@ -1390,8 +1390,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059158878}
+
   m_LocalRotation: {x: 0.1068797, y: -0.23355071, z: 0.025837537, w: 0.96610725}
   m_LocalPosition: {x: 6.9481845, y: 8.1648445, z: -4.6263433}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 803352163}
@@ -2265,7 +2267,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 39137443e9bcb4541a30f3e79fd77f8f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7a455ea70db76094bb3254f34115e034, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2912,8 +2914,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591798098}
+
   m_LocalRotation: {x: 0.1068797, y: -0.23355071, z: 0.025837537, w: 0.96610725}
   m_LocalPosition: {x: 6.9481845, y: 8.1648445, z: -4.6263433}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1378988794}
@@ -3731,10 +3735,10 @@ MonoBehaviour:
   EnergyCostGlide: 1
   CrashDamage: 10
   groundSpeed: 3
-  speed: 5
+  speed: 6
   rotateSpeed: 2
   accelration: 1
-  fallingSpeed: 1
+  fallingSpeed: 2.3
   isSuiside: 0
   isCrushed: 0
   robot: {fileID: 1167054158}
@@ -3806,8 +3810,10 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918461650}
+
   m_LocalRotation: {x: 0, y: -0.23497556, z: 0, w: 0.9720013}
   m_LocalPosition: {x: 4.664219, y: 6.1648445, z: -0.17847809}
+
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1699402953}
