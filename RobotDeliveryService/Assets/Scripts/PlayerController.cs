@@ -118,6 +118,18 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log(collision);
         Debug.Log(collision.gameObject.tag.Equals("floor"));
+        if (!onGround)//flying, and dying
+        {
+            if (!isSuiside)//flying for sure
+            {
+                if (collision.gameObject.tag.Equals("building"))//crash on the building
+                {
+                    player.transform.Translate(0, -1.8f, 0);
+                    crash();
+                }
+            }
+        }
+
         if (collision.gameObject.tag.Equals("floor") && !onGround)//landing
         {
             if (isSuiside)
@@ -161,5 +173,12 @@ public class PlayerController : MonoBehaviour
            
 		}
                
+    }
+
+    private void crash()
+    {
+        player.transform.Translate(new Vector3(0, fallingSpeed * 2 * Time.fixedDeltaTime, 0));
+        player.transform.Rotate(new Vector3(0, 1.5f, 0));
+        //Todo
     }
 }
