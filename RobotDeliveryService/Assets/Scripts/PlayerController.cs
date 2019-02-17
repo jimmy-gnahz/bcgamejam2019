@@ -88,11 +88,11 @@ public class PlayerController : MonoBehaviour
                 int currentRotationY = (int) Mathf.Round(robot.localRotation.eulerAngles.y);
                 if (h > 0)
                 {
-                    robot.localRotation = Quaternion.Euler(0, 45, 0);
+					robot.localRotation = Quaternion.Euler(0, -135, 0);
                 }
                 else if (h < 0)
                 {
-                    robot.localRotation = Quaternion.Euler(0, -45, 0);
+					robot.localRotation = Quaternion.Euler(0, -45, 0);
                 }
                 else
                 {
@@ -175,7 +175,8 @@ public class PlayerController : MonoBehaviour
             player.transform.Rotate(-90, 0, 0);
 
             playerAnimator.SetBool("isFlying", false);
-        }
+			robot.localRotation = Quaternion.Euler(0, -90, 0);
+		}
     }
 
     IEnumerator YouFellOff()
