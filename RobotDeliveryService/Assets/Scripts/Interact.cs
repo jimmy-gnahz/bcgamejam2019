@@ -22,7 +22,6 @@ public class Interact : MonoBehaviour
     public GameObject _Questdisplayname;
 
     private GameObject _Object;
-
     public GameObject[] buttons;
 
     private void Start()

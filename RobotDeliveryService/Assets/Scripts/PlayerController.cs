@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float EnergyCostWalk; //units of energy per second
     public float EnergyCostGlide; //units of energy per second
     private float EnergyTimer;
+    public int CrashDamage;//
 
     //for walking
     public float groundSpeed;
@@ -26,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public float fallingSpeed;
 
     public bool isSuiside = false;
+    public bool isCrushed = false;
 
     public Transform robot;
     public bool onGround = true;
@@ -37,6 +39,9 @@ public class PlayerController : MonoBehaviour
         initialRotation = player.rotation;
         Energy = MaxEnergy;
         isSuiside = false;
+        isCrushed = false;
+
+
     }
 
     private void FixedUpdate()
@@ -51,6 +56,10 @@ public class PlayerController : MonoBehaviour
             onGround = false;
             player.transform.Translate(new Vector3(0, fallingSpeed * 2 * Time.fixedDeltaTime, 0));
             player.transform.Rotate(new Vector3(0, 1.5f, 0));
+        }
+        else if (isCrushed)
+        {
+            crash();
         }
         else
         {
@@ -128,14 +137,22 @@ public class PlayerController : MonoBehaviour
             {
                 if (collision.gameObject.tag.Equals("building"))//crash on the building
                 {
+                    
+                    isCrushed = true;
+                    Energy -= CrashDamage;
+                    robot.localRotation = Quaternion.Euler(0, -90, 0);
                     player.transform.Translate(0, -1.8f, 0);
-                    crash();
+                    player.velocity = new Vector3(0, 0, 0);
                 }
             }
         }
 
         if (collision.gameObject.tag.Equals("floor") && !onGround)//landing
         {
+            if (isCrushed)
+            {
+                isCrushed = false;
+            }
             if (isSuiside)
             {
                 Energy = 0;
@@ -182,8 +199,8 @@ public class PlayerController : MonoBehaviour
 
     private void crash()
     {
-        player.transform.Translate(new Vector3(0, fallingSpeed * 2 * Time.fixedDeltaTime, 0));
-        player.transform.Rotate(new Vector3(0, 1.5f, 0));
+        player.transform.Translate(new Vector3(0,0, fallingSpeed * 4 * Time.fixedDeltaTime));
+        player.transform.Rotate(new Vector3(0,0 ,3.5f));
         //Todo
     }
 }
