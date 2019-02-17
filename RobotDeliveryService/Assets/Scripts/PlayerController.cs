@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!isSuiside)//flying for sure
             {
-                if (collision.gameObject.tag.Equals("building"))//crash on the building
+                if (collision.gameObject.tag.Equals("Building"))//crash on the building
                 {
                     
                     isCrushed = true;
