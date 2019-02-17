@@ -108,7 +108,12 @@ public class PlayerController : MonoBehaviour
                 transform.Rotate(0, h * rotateSpeed, 0);
 
                 transform.localPosition += velocity * Time.fixedDeltaTime;
-            }
+
+				if (velocity.Equals(Vector3.zero))
+					playerAnimator.SetBool("isMoving", false);
+				else
+					playerAnimator.SetBool("isMoving", true);
+			}
 
         }
 
