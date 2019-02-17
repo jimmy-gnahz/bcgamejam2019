@@ -7,7 +7,7 @@ public class PauseGame : MonoBehaviour
 {
 
     public bool gamePaused = false;
-    //public AudioSource levelMusic;
+    public AudioSource BGM;
     public GameObject pauseMenu;
 
     void Update()
@@ -18,7 +18,7 @@ public class PauseGame : MonoBehaviour
             {
                 Time.timeScale = 0;
                 gamePaused = true;
-                //levelMusic.Pause();
+                BGM.Pause();
                 pauseMenu.SetActive(true);
             }
             else
@@ -31,7 +31,7 @@ public class PauseGame : MonoBehaviour
     public void resumeGame()
     {
         pauseMenu.SetActive(false);
-        //levelMusic.UnPause();
+        BGM.UnPause();
         gamePaused = false;
         Time.timeScale = 1;
     }
@@ -39,7 +39,7 @@ public class PauseGame : MonoBehaviour
     public void restartLevel()
     {
         pauseMenu.SetActive(false);
-        //levelMusic.UnPause();
+        BGM.UnPause();
         gamePaused = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(RedirectToLevel.redirectToLevel);
@@ -48,7 +48,7 @@ public class PauseGame : MonoBehaviour
     public void quitToMenu()
     {
         pauseMenu.SetActive(false);
-        //levelMusic.UnPause();
+        BGM.UnPause();
         gamePaused = false;
         Time.timeScale = 1;
         SceneManager.LoadScene(1);
