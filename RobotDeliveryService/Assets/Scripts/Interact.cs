@@ -34,11 +34,12 @@ public class Interact : MonoBehaviour
         _CommandDisplay = UIElements.inst.CommandDisplay;
 		_CommandDisplay.SetActive(false);
 		_CommandText = UIElements.inst.CommandText;
+		print(_CommandText);
 		_CommandText.SetActive(false);
-		_UIquest = UIElements.inst.UIquest;
+		_UIquest = UIElements.inst.UIQuest;
         _UIQuestinfo = UIElements.inst.UIQuestinfo;
         _UIQuestname = UIElements.inst.UIQuestname;
-        _Questdisplayname = UIElements.inst.Questdisplayname;
+        _Questdisplayname = UIElements.inst.QuestDisplayName;
         _Player = UIElements.inst.Player;
 
 		if (tag == "Building")
@@ -80,7 +81,9 @@ public class Interact : MonoBehaviour
     void OnMouseOver()
     {
         //Cannot talk to someone on a rooftop or high ground
-        if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
+        if (_Distance <= 3 && 
+			_Player.transform.position.y < 1.5 && 
+			!_Talk)
         {
             if (_Object.tag.Contains("NPC"))
             {

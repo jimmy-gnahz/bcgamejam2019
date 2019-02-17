@@ -9,16 +9,16 @@ public class UIElements : MonoBehaviour
 
 	public  GameObject CommandDisplay;
 	public  GameObject CommandText;
-	public  GameObject UIquest;
+	public  GameObject UIQuest;
 	public  GameObject Player;
 
 	public  QuestManager questManager;
 	public  GameObject UIQuestinfo;
 	public  GameObject UIQuestname;
-	public  GameObject Questdisplayname;
+	public  GameObject QuestDisplayName;
 	public  GameObject[] acceptDeclineButtons;
 
-	void Start()
+	void Awake()
     {
 		if (inst != this) {
 			if (inst == null) {

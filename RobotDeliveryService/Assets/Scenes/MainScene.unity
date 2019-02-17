@@ -1390,7 +1390,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059158878}
-  m_LocalRotation: {x: 0.1068797, y: -0.23355071, z: 0.025837537, w: 0.96610725}
+  m_LocalRotation: {x: 0.10687971, y: -0.23355073, z: 0.02583754, w: 0.96610725}
   m_LocalPosition: {x: 6.9481845, y: 8.1648445, z: -4.6263433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 400010, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1775,10 +1779,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 13700000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -2912,7 +2912,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591798098}
-  m_LocalRotation: {x: 0.1068797, y: -0.23355071, z: 0.025837537, w: 0.96610725}
+  m_LocalRotation: {x: 0.10687971, y: -0.23355073, z: 0.02583754, w: 0.96610725}
   m_LocalPosition: {x: 6.9481845, y: 8.1648445, z: -4.6263433}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3179,6 +3179,7 @@ GameObject:
   - component: {fileID: 1668300589}
   - component: {fileID: 1668300588}
   - component: {fileID: 1668300587}
+  - component: {fileID: 1668300591}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3275,6 +3276,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1668300591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1668300586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b99c662b8f70e844be48dcf9685620d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CommandDisplay: {fileID: 1140290050}
+  CommandText: {fileID: 1995691982}
+  UIQuest: {fileID: 1287365818}
+  Player: {fileID: 1918461650}
+  questManager: {fileID: 1013646966}
+  UIQuestinfo: {fileID: 516400464}
+  UIQuestname: {fileID: 1975178952}
+  QuestDisplayName: {fileID: 1826125982}
+  acceptDeclineButtons: []
 --- !u!1 &1699402952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3661,16 +3683,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Distance: 0
-  _CommandDisplay: {fileID: 1140290050}
-  _CommandText: {fileID: 1995691982}
-  _UIquest: {fileID: 1287365818}
-  _Player: {fileID: 1918461650}
   questManager: {fileID: 0}
   _Talk: 0
   ID: 1000
-  _UIQuestinfo: {fileID: 516400464}
-  _UIQuestname: {fileID: 1975178952}
-  _Questdisplayname: {fileID: 1826125982}
   buttons: []
 --- !u!1 &1918461650
 GameObject:
@@ -3842,10 +3857,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1918461650}
-  QuestList:
-  - {fileID: 7803468964455713492, guid: afc6e48d408bc3242aeee46b35228a31, type: 3}
-  - {fileID: 1287365818, guid: 18ebab92afbb46a4ab20e7e36a02145a, type: 3}
-  - {fileID: 1287365818, guid: 914750a35f3945343abded5fe93d5409, type: 3}
+  NPC000: {fileID: 0}
+  NPC001: {fileID: 0}
+  NPC002: {fileID: 0}
+  NPC003: {fileID: 0}
+  NPC004: {fileID: 0}
+  NPC100: {fileID: 0}
+  NPC101: {fileID: 0}
+  NPC102: {fileID: 0}
+  NPC103: {fileID: 0}
+  NPC104: {fileID: 0}
   UIquest: {fileID: 1287365818}
   Questdisplayname: {fileID: 1826125982}
   _Talk: 0
