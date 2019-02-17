@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Interact : MonoBehaviour
 {
     public float _Distance;
-    GameObject _CommandDisplay;
-    GameObject _CommandText;
-    GameObject _UIquest;
-    GameObject _Player;
+    public GameObject _CommandDisplay;
+    public GameObject _CommandText;
+    public GameObject _UIquest;
+    public GameObject _Player;
 
-    GameObject _Rooftop;
+    public GameObject _Rooftop;
 
     public QuestManager questManager;
     public bool _Talk = false;
@@ -19,33 +19,53 @@ public class Interact : MonoBehaviour
     // Building ID in range of 1000-9999.
     // Quest Giving NPC: ID in range of 0 - 99.
     // Receiving NPC: ID in range of 100 - 199
-    public int ID; 
+    public int ID;
 
-    GameObject _UIQuestinfo; 
-    GameObject _UIQuestname;
-    GameObject _Questdisplayname;
+    public GameObject _UIQuestinfo;
+    public GameObject _UIQuestname;
+    public GameObject _Questdisplayname;
 
     GameObject _Object;
     public GameObject[] buttons;
 
+   /* private void Start()
+    {
+        /*      _Object = this.gameObject;
+              _CommandDisplay = UIElements.inst.CommandDisplay;
+              _CommandDisplay.SetActive(false);
+              _CommandText = UIElements.inst.CommandText;
+              print(_CommandText);
+              _CommandText.SetActive(false);
+              _UIquest = UIElements.inst.UIQuest;
+              _UIQuestinfo = UIElements.inst.UIQuestinfo;
+              _UIQuestname = UIElements.inst.UIQuestname;
+              _Questdisplayname = UIElements.inst.QuestDisplayName;
+              _Player = UIElements.inst.Player;
+                     if (tag == "Building")
+			_Rooftop = transform.GetChild(0).gameObject;
+
+
+*/
     private void Awake()
     {
         _Object = this.gameObject;
-        _CommandDisplay = UIElements.inst.CommandDisplay;
-		_CommandDisplay.SetActive(false);
-		_CommandText = UIElements.inst.CommandText;
-		print(_CommandText);
-		_CommandText.SetActive(false);
-		_UIquest = UIElements.inst.UIQuest;
-        _UIQuestinfo = UIElements.inst.UIQuestinfo;
-        _UIQuestname = UIElements.inst.UIQuestname;
-        _Questdisplayname = UIElements.inst.QuestDisplayName;
-        _Player = UIElements.inst.Player;
+        _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
+        _CommandText = GameObject.FindGameObjectWithTag("KeyText");
+        _UIquest = GameObject.FindGameObjectWithTag("UIquest");
+        _UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
+        _UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
+        _Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
+        _Player = GameObject.FindGameObjectWithTag("Player");
 
-		if (tag == "Building")
-			_Rooftop = transform.GetChild(0).gameObject;
+        if (tag == "Building")
+        {
+            _Rooftop = transform.parent.GetChild(1).gameObject;
+            print(_Rooftop.tag);
+        }
+    }
 
-	}
+ 
+	
 
     void Update()
     {
