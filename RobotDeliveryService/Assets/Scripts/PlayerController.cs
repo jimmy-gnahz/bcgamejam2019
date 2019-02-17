@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody player;
     private Quaternion initialRotation;
 
+	public Animator playerAnimator;
+
     //for walking
     public float groundSpeed;
 
@@ -24,7 +26,8 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Rigidbody>();
         initialRotation = player.rotation;
-    }
+
+	}
 
     private void FixedUpdate()
     {
@@ -48,7 +51,7 @@ public class PlayerController : MonoBehaviour
 
             if (h > 0)
             {
-                Debug.Log(transform.eulerAngles.y);
+                //Debug.Log(transform.eulerAngles.y);
                 transform.Rotate(0, 1, 0);
                 if (transform.eulerAngles.y > 300)
                 {
@@ -79,7 +82,9 @@ public class PlayerController : MonoBehaviour
             onGround = true;
             player.useGravity = true ;
             player.transform.Rotate(-90, 0, 0);
-        }
+
+			playerAnimator.SetBool("isFlying", false);
+		}
     }
 
     private void OnCollisionExit(Collision collision)
@@ -90,9 +95,11 @@ public class PlayerController : MonoBehaviour
             player.useGravity = false;
             onGround = false;
             player.transform.Translate(0, 0, 0.8f);
-            player.transform.Rotate(90, 0, 0);
-           // player.constraints
-        }
+            //player.transform.Rotate(90, 0, 0);
+			// player.constraints
+
+			playerAnimator.SetBool("isFlying", true);
+		}
                
     }
 }
