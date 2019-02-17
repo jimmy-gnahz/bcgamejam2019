@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     public GameObject _CommandText;
     public GameObject _UIquest;
     public GameObject _Player;
+    public GameObject _Rooftop;
     public bool _Talk = false;
 
     // Building ID in range of 1000-9999.
@@ -24,9 +25,16 @@ public class Interact : MonoBehaviour
     private GameObject _Object;
     public GameObject[] buttons;
 
-    private void Start()
+    private void Awake()
     {
         _Object = this.gameObject;
+        _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
+        _CommandText = GameObject.FindGameObjectWithTag("KeyText");
+        _UIquest = GameObject.FindGameObjectWithTag("UIquest");
+        _UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
+        _UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
+        _Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
+        _Player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
@@ -70,7 +78,7 @@ public class Interact : MonoBehaviour
                 _CommandDisplay.GetComponent<Text>().text = "Talk";
                 _CommandText.GetComponent<Text>().text = "E";
             }
-            else if (_Object.name.Contains("Building"))
+            else if (_Object.tag.Equals("Building"))
             {
                 _CommandDisplay.GetComponent<Text>().text = "Use Elevator";
                 _CommandText.GetComponent<Text>().text = "E";
@@ -90,8 +98,8 @@ public class Interact : MonoBehaviour
 
                 if (_Object.tag.Contains("Building"))
                 {
-                    _Player.transform.Translate(Vector3.up * _Object.transform.localScale.y);
-                    _Player.transform.Translate(Vector3.forward * _Object.transform.localScale.z);
+                    _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
+                    _Player.transform.Translate(Vector3.forward * 1.5f);
                 }
                 else
                 {   // Assume object is either building or NPC

@@ -8,7 +8,12 @@ TagManager:
   - Roof
   - NPC
   - Building
-
+  - ActionText
+  - KeyText
+  - UIquest
+  - UIQuestinfo
+  - UIQuestname
+  - Questdisplayname
   layers:
   - Default
   - TransparentFX
