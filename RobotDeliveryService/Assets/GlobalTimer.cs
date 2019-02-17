@@ -13,10 +13,16 @@ public class GlobalTimer : MonoBehaviour
 
     void Update()
     {
-        if (isTakingTime == false)
+        if (isTakingTime == false) // ticks the clock
         {
             StartCoroutine(SubtractSecond());
         }
+
+        if (theSeconds <= 0)
+        {
+            // End the game due to time.
+        }
+
     }
 
     IEnumerator SubtractSecond()
