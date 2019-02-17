@@ -10,6 +10,7 @@ public class Interact : MonoBehaviour
     public GameObject _CommandText;
     public GameObject _UIquest;
     public GameObject _Player;
+    public QuestManager questManager;
     public bool _Talk = false;
 
     // Building ID in range of 1000-9999.
@@ -31,7 +32,7 @@ public class Interact : MonoBehaviour
 
     void Update()
     {
-
+        
         _Distance = PlayerCasting.Distancefromtarget;
 
         if (Input.GetButtonDown("Accept") && _Talk)
@@ -58,19 +59,19 @@ public class Interact : MonoBehaviour
     {
         _UIquest.SetActive(false);
         _Questdisplayname.SetActive(false);
-
     }
+
     void OnMouseOver()
     {
         //Cannot talk to someone on a rooftop or high ground
         if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
         {
-            if (_Object.name.Contains("NPC"))
+            if (_Object.tag.Contains("NPC"))
             {
                 _CommandDisplay.GetComponent<Text>().text = "Talk";
                 _CommandText.GetComponent<Text>().text = "E";
             }
-            else if (_Object.name.Contains("Building"))
+            else if (_Object.tag.Contains("Building"))
             {
                 _CommandDisplay.GetComponent<Text>().text = "Use Elevator";
                 _CommandText.GetComponent<Text>().text = "E";
@@ -80,14 +81,10 @@ public class Interact : MonoBehaviour
             _CommandText.SetActive(true);
         }
 
-
-
         if (Input.GetButtonDown("Action"))
         {
             if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
             {
-
-
                 if (_Object.tag.Contains("Building"))
                 {
                     _Player.transform.Translate(Vector3.up * _Object.transform.localScale.y);
@@ -123,7 +120,7 @@ public class Interact : MonoBehaviour
                         _Questdisplayname.GetComponent<Text>().text = "First Quest Receiver DisplayName Placeholder";
                         // TODO: Give player Energy 
                         _Talk = true;
-                        QuestManager.rewardPlayer(ID);
+                        questManager.rewardPlayer(ID);
                     }
                 }
 

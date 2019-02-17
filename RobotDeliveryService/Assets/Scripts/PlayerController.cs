@@ -10,13 +10,12 @@ public class PlayerController : MonoBehaviour
 
     public Animator playerAnimator;
 
-
-    public int Energy;
+    public  int Energy;
     public int MaxEnergy;
     public float EnergyCostWalk; //units of energy per second
     public float EnergyCostGlide; //units of energy per second
     private float EnergyTimer;
-    public int CrashDamage;//
+    public int CrashDamage;
 
     //for walking
     public float groundSpeed;
@@ -45,8 +44,6 @@ public class PlayerController : MonoBehaviour
         Energy = MaxEnergy;
         isSuiside = false;
         isCrushed = false;
-
-
     }
 
     private void FixedUpdate()
@@ -76,6 +73,7 @@ public class PlayerController : MonoBehaviour
                     Energy--;
                     EnergyTimer = 0;
                 }
+
                 velocityVertical = new Vector3(0, -fallingSpeed, 0);
                 transform.localPosition += velocityVertical * Time.fixedDeltaTime;
                 velocity2d = new Vector3(0, speed * v, 0);
@@ -87,6 +85,7 @@ public class PlayerController : MonoBehaviour
                     transform.localPosition += velocity2d * Time.fixedDeltaTime;
                 }
 
+                int currentRotationY = (int) Mathf.Round(robot.localRotation.eulerAngles.y);
                 if (h > 0)
                 {
                     robot.localRotation = Quaternion.Euler(0, 45, 0);
@@ -114,6 +113,11 @@ public class PlayerController : MonoBehaviour
                         Energy--;
                         EnergyTimer = 0;
                     }
+                }
+                if (v < 0)
+                {
+                    Debug.Log("ReadEnergy");
+                    Debug.Log(Energy);
                 }
 
                 velocity = transform.TransformDirection(velocity);
