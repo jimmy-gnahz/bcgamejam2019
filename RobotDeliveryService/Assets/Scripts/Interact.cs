@@ -31,15 +31,15 @@ public class Interact : MonoBehaviour
     private void Awake()
     {
         _Object = this.gameObject;
-        _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
+        _CommandDisplay = UIElements.inst.CommandDisplay;
 		_CommandDisplay.SetActive(false);
-		_CommandText = GameObject.FindGameObjectWithTag("KeyText");
+		_CommandText = UIElements.inst.CommandText;
 		_CommandText.SetActive(false);
-		_UIquest = GameObject.FindGameObjectWithTag("UIquest");
-        _UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
-        _UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
-        _Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
-        _Player = GameObject.FindGameObjectWithTag("Player");
+		_UIquest = UIElements.inst.UIquest;
+        _UIQuestinfo = UIElements.inst.UIQuestinfo;
+        _UIQuestname = UIElements.inst.UIQuestname;
+        _Questdisplayname = UIElements.inst.Questdisplayname;
+        _Player = UIElements.inst.Player;
 
 		if (tag == "Building")
 			_Rooftop = transform.GetChild(0).gameObject;

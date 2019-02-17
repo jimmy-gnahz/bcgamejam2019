@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1269,11 +1269,6 @@ PrefabInstance:
       propertyPath: playerObject
       value: 
       objectReference: {fileID: 1918461652}
-    - target: {fileID: 7715806933590367124, guid: 82b47b51ec3d2404bba3fb819676cdc0,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82b47b51ec3d2404bba3fb819676cdc0, type: 3}
 --- !u!114 &1013646966 stripped
@@ -1283,7 +1278,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1013646965}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36f84933d6aa7db4ca9d1da127b71ff9, type: 3}
   m_Name: 
@@ -1508,11 +1503,11 @@ GameObject:
   - component: {fileID: 1140290052}
   m_Layer: 5
   m_Name: ActionText
-  m_TagString: ActionText
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1140290051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1736,10 +1731,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 400010, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1784,6 +1775,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 13700000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1944,10 +1939,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 516400464, guid: 914750a35f3945343abded5fe93d5409, type: 3}
-      propertyPath: m_TagString
-      value: UIQuestinfo
-      objectReference: {fileID: 0}
     - target: {fileID: 1287365819, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2039,10 +2030,6 @@ PrefabInstance:
     - target: {fileID: 1975178952, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1975178952, guid: 914750a35f3945343abded5fe93d5409, type: 3}
-      propertyPath: m_TagString
-      value: UIQuestname
       objectReference: {fileID: 0}
     - target: {fileID: 516400466, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_Text
@@ -2648,11 +2635,6 @@ PrefabInstance:
       propertyPath: questManager
       value: 
       objectReference: {fileID: 1013646966}
-    - target: {fileID: 8538239302319226463, guid: 5d75768435172f147aeb853a1a145631,
-        type: 3}
-      propertyPath: _Rooftop
-      value: 
-      objectReference: {fileID: 1854708013}
     - target: {fileID: 5091569841817107087, guid: 5d75768435172f147aeb853a1a145631,
         type: 3}
       propertyPath: m_TagString
@@ -2763,12 +2745,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1494005463 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5091569841817107087, guid: 5d75768435172f147aeb853a1a145631,
-    type: 3}
-  m_PrefabInstance: {fileID: 8538239302348582952}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1532667425
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,12 +3642,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826125982}
   m_CullTransparentMesh: 0
---- !u!1 &1854708013 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5091569841817107087, guid: 5d75768435172f147aeb853a1a145631,
-    type: 3}
-  m_PrefabInstance: {fileID: 1444072586}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1857533156 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5204863573498139784, guid: f9286521101d1dd4b9de8b6402ab9fc4,
@@ -3691,18 +3661,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Distance: 0
-
   _CommandDisplay: {fileID: 1140290050}
   _CommandText: {fileID: 1995691982}
   _UIquest: {fileID: 1287365818}
   _Player: {fileID: 1918461650}
-  _Rooftop: {fileID: 0}
-
   questManager: {fileID: 0}
   _Talk: 0
   ID: 1000
+  _UIQuestinfo: {fileID: 516400464}
+  _UIQuestname: {fileID: 1975178952}
+  _Questdisplayname: {fileID: 1826125982}
   buttons: []
-
+--- !u!1 &1918461650
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3722,7 +3692,7 @@ GameObject:
   - component: {fileID: 1918461660}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3872,16 +3842,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 1918461650}
-  NPC000: {fileID: 0}
-  NPC001: {fileID: 0}
-  NPC002: {fileID: 0}
-  NPC003: {fileID: 0}
-  NPC004: {fileID: 0}
-  NPC100: {fileID: 0}
-  NPC101: {fileID: 0}
-  NPC102: {fileID: 0}
-  NPC103: {fileID: 0}
-  NPC104: {fileID: 0}
+  QuestList:
+  - {fileID: 7803468964455713492, guid: afc6e48d408bc3242aeee46b35228a31, type: 3}
+  - {fileID: 1287365818, guid: 18ebab92afbb46a4ab20e7e36a02145a, type: 3}
+  - {fileID: 1287365818, guid: 914750a35f3945343abded5fe93d5409, type: 3}
   UIquest: {fileID: 1287365818}
   Questdisplayname: {fileID: 1826125982}
   _Talk: 0
@@ -4026,11 +3990,11 @@ GameObject:
   - component: {fileID: 1995691984}
   m_Layer: 5
   m_Name: KeyText
-  m_TagString: KeyText
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1995691983
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4348,16 +4312,6 @@ PrefabInstance:
       propertyPath: questManager
       value: 
       objectReference: {fileID: 1013646966}
-    - target: {fileID: 8538239302319226463, guid: 5d75768435172f147aeb853a1a145631,
-        type: 3}
-      propertyPath: _Rooftop
-      value: 
-      objectReference: {fileID: 1494005463}
-    - target: {fileID: 8538239302319226463, guid: 5d75768435172f147aeb853a1a145631,
-        type: 3}
-      propertyPath: ID
-      value: 1000
-      objectReference: {fileID: 0}
     - target: {fileID: 5091569841817107087, guid: 5d75768435172f147aeb853a1a145631,
         type: 3}
       propertyPath: m_TagString
