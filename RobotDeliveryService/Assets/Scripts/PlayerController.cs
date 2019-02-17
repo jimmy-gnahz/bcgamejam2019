@@ -112,6 +112,9 @@ public class PlayerController : MonoBehaviour
                     {
                         Energy--;
                         EnergyTimer = 0;
+						if (Energy <= 0) {
+							StartCoroutine(YouFellOff());
+						}
                     }
                 }
                 if (v < 0)
@@ -185,10 +188,11 @@ public class PlayerController : MonoBehaviour
     IEnumerator YouFellOff()
     {
         youFell.SetActive(true);
-        yield return new WaitForSeconds(2);
-        //LevelAudio.SetActive(false);
-        fadeOut.SetActive(true);
-        yield return new WaitForSeconds(1);
+		Time.timeScale = 0.3f;
+        yield return new WaitForSecondsRealtime(2);
+		//LevelAudio.SetActive(false);
+		fadeOut.SetActive(true);
+        yield return new WaitForSecondsRealtime(1);
         SceneManager.LoadScene(1);
     }
 
