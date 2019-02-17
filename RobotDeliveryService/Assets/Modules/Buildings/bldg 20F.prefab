@@ -228,6 +228,7 @@ MonoBehaviour:
   _UIquest: {fileID: 0}
   _Player: {fileID: 0}
   _Rooftop: {fileID: 1054683519164206760}
+  questManager: {fileID: 0}
   _Talk: 0
   ID: 0
   _UIQuestinfo: {fileID: 0}
@@ -272,7 +273,7 @@ Transform:
   m_GameObject: {fileID: 5321738823859818499}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 2.090001, y: 0.039999995, z: 4.1400003}
-  m_LocalScale: {x: 1, y: 1, z: 0.3000006}
+  m_LocalScale: {x: 1.5, y: 2, z: 0.625}
   m_Children:
   - {fileID: 7779668835677042205}
   - {fileID: 2260633824001282285}
