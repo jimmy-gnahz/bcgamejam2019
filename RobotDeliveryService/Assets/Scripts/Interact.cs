@@ -15,6 +15,11 @@ public class Interact : MonoBehaviour
     public GameObject _UIQuestinfo;
     public GameObject _UIQuestname;
     public GameObject _Questdisplayname;
+
+    private void Start()
+    {
+        _Object = this.gameObject;
+    }
     void Update()
     {
 

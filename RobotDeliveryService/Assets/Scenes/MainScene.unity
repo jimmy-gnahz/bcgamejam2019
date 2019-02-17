@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -391,12 +391,14 @@ MonoBehaviour:
   MaxEnergy: 0
   EnergyCostWalk: 0
   EnergyCostGlide: 0
+  CrashDamage: 0
   groundSpeed: 3
   speed: 5
   rotateSpeed: 2
   accelration: 1
   fallingSpeed: 2
   isSuiside: 0
+  isCrushed: 0
   robot: {fileID: 0}
   onGround: 1
 --- !u!4 &1074573554
@@ -684,6 +686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8538239302319226458, guid: 5d75768435172f147aeb853a1a145631,
+        type: 3}
+      propertyPath: m_TagString
+      value: building
+      objectReference: {fileID: 0}
     - target: {fileID: 8538239302319226459, guid: 5d75768435172f147aeb853a1a145631,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -759,6 +766,11 @@ PrefabInstance:
       propertyPath: _Player
       value: 
       objectReference: {fileID: 1918461650}
+    - target: {fileID: 8538239302319226463, guid: 5d75768435172f147aeb853a1a145631,
+        type: 3}
+      propertyPath: _Object
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d75768435172f147aeb853a1a145631, type: 3}
 --- !u!1 &1452229280
@@ -1292,12 +1304,14 @@ MonoBehaviour:
   MaxEnergy: 100
   EnergyCostWalk: 5
   EnergyCostGlide: 1
+  CrashDamage: 30
   groundSpeed: 3
   speed: 5
   rotateSpeed: 2
   accelration: 1
   fallingSpeed: 0.3
   isSuiside: 0
+  isCrushed: 0
   robot: {fileID: 1223228615}
   onGround: 1
 --- !u!65 &1918461653
@@ -1532,6 +1546,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building
       objectReference: {fileID: 0}
+    - target: {fileID: 8538239302319226458, guid: 5d75768435172f147aeb853a1a145631,
+        type: 3}
+      propertyPath: m_TagString
+      value: building
+      objectReference: {fileID: 0}
     - target: {fileID: 8538239302319226459, guid: 5d75768435172f147aeb853a1a145631,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1602,6 +1621,11 @@ PrefabInstance:
       propertyPath: _Player
       value: 
       objectReference: {fileID: 1918461650}
+    - target: {fileID: 8538239302319226463, guid: 5d75768435172f147aeb853a1a145631,
+        type: 3}
+      propertyPath: _Object
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5091569841817107087, guid: 5d75768435172f147aeb853a1a145631,
         type: 3}
       propertyPath: m_TagString
