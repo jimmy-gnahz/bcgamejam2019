@@ -12,12 +12,21 @@ EditorBuildSettings:
     path: Assets/Scenes/SplashScreen.unity
     guid: 248cc544bcba82846a391e80579cbf48
   - enabled: 1
-    path: Assets/Scenes/MainScreen.unity
-    guid: c52014bdea3289243ac75844a05a6a79
-  - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 57eb1e6488b9bc141b6017d300f47d22
+    path: Assets/Scenes/Menu.unity
+    guid: c7d9f0ffb359df4479f570f1c40f6f80
   - enabled: 1
     path: Assets/Scenes/HighScoreScreen.unity
     guid: 12cd723687ab2f043a71d73d6a837090
+  - enabled: 1
+    path: Assets/Scenes/MainScene.unity
+    guid: a4d42f35c97d2b546be9b8c169678573
+  - enabled: 0
+    path: Assets/__DELETED_GUID_Trash/e279f4ac7be746c469c88647f2df05ca
+    guid: e279f4ac7be746c469c88647f2df05ca
+  - enabled: 0
+    path: Assets/Scenes/MainScreen.unity
+    guid: c52014bdea3289243ac75844a05a6a79
+  - enabled: 0
+    path: Assets/Scenes/SampleScene.unity
+    guid: 57eb1e6488b9bc141b6017d300f47d22
   m_configObjects: {}

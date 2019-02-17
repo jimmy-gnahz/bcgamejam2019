@@ -18,8 +18,8 @@ public class MainMenuFunction : MonoBehaviour
     public void PlayGame()
     {
         buttonPress.Play();
-        RedirectToLevel.redirectToLevel = 2;
-        SceneManager.LoadScene(2);
+        RedirectToLevel.redirectToLevel = 3;
+        SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
@@ -31,6 +31,6 @@ public class MainMenuFunction : MonoBehaviour
     public void HighScore()
     {
         buttonPress.Play();
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(2);
     }
 }

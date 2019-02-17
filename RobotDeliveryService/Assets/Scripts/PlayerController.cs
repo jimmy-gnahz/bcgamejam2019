@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -31,6 +32,10 @@ public class PlayerController : MonoBehaviour
 
     public Transform robot;
     public bool onGround = true;
+
+    public GameObject youFell;
+    //public GameObject LevelAudio;
+    public GameObject fadeOut;
 
     // Start is called before the first frame update
     void Start()
@@ -157,6 +162,7 @@ public class PlayerController : MonoBehaviour
             {
                 Energy = 0;
                 isSuiside = false;
+                StartCoroutine(YouFellOff());
             }
             EnergyTimer = 0;//grace reset on landing and taking off
             Debug.Log("oncollision ");
@@ -166,6 +172,16 @@ public class PlayerController : MonoBehaviour
 
             playerAnimator.SetBool("isFlying", false);
         }
+    }
+
+    IEnumerator YouFellOff()
+    {
+        youFell.SetActive(true);
+        yield return new WaitForSeconds(2);
+        //LevelAudio.SetActive(false);
+        fadeOut.SetActive(true);
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(1);
     }
 
     private void OnCollisionExit(Collision collision)
