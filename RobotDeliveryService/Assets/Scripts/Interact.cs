@@ -110,15 +110,27 @@ public class Interact : MonoBehaviour
                     }
                     else if (ID == 1)
                     {
-                        ; // Keep going
+                        _UIQuestinfo.GetComponent<Text>().text = "Second Quest Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "Second Quest Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "Second Quest DisplayName Placeholder";
+                        QuestManager.ActiveQuestID = ID;
+                        _Talk = true;
                     }
-                    else if (QuestManager.ActiveQuestID + 100 == ID)
+                    else if (100 == ID)
                     {
                         QuestManager.isTakingQuest = false;
                         _UIQuestinfo.GetComponent<Text>().text = "First Quest Receiver Info Placeholder";
                         _UIQuestname.GetComponent<Text>().text = "First Quest Receiver Name Placeholder";
                         _Questdisplayname.GetComponent<Text>().text = "First Quest Receiver DisplayName Placeholder";
-                        // TODO: Give player Energy 
+                        _Talk = true;
+                        questManager.rewardPlayer(ID);
+                    }
+                    else if (101 == ID)
+                    {
+                        QuestManager.isTakingQuest = false;
+                        _UIQuestinfo.GetComponent<Text>().text = "Second Quest Receiver Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "Second Quest Receiver Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "Second Quest Receiver DisplayName Placeholder";
                         _Talk = true;
                         questManager.rewardPlayer(ID);
                     }
