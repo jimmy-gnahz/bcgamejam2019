@@ -1503,11 +1503,11 @@ GameObject:
   - component: {fileID: 1140290052}
   m_Layer: 5
   m_Name: ActionText
-  m_TagString: Untagged
+  m_TagString: ActionText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1140290051
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1731,6 +1731,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 400010, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1775,10 +1779,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9500000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 6f79883250ac3a8419cd3be3176de22b, type: 2}
     - target: {fileID: 13700000, guid: 7d955e7e8afe595449f53b900d045d81, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -1939,6 +1939,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 516400464, guid: 914750a35f3945343abded5fe93d5409, type: 3}
+      propertyPath: m_TagString
+      value: UIQuestinfo
+      objectReference: {fileID: 0}
     - target: {fileID: 1287365819, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2030,6 +2034,10 @@ PrefabInstance:
     - target: {fileID: 1975178952, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1975178952, guid: 914750a35f3945343abded5fe93d5409, type: 3}
+      propertyPath: m_TagString
+      value: UIQuestname
       objectReference: {fileID: 0}
     - target: {fileID: 516400466, guid: 914750a35f3945343abded5fe93d5409, type: 3}
       propertyPath: m_Text
@@ -3661,16 +3669,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _Distance: 0
-  _CommandDisplay: {fileID: 1140290050}
-  _CommandText: {fileID: 1995691982}
-  _UIquest: {fileID: 1287365818}
-  _Player: {fileID: 1918461650}
   questManager: {fileID: 0}
   _Talk: 0
   ID: 1000
-  _UIQuestinfo: {fileID: 516400464}
-  _UIQuestname: {fileID: 1975178952}
-  _Questdisplayname: {fileID: 1826125982}
   buttons: []
 --- !u!1 &1918461650
 GameObject:
@@ -3692,7 +3693,7 @@ GameObject:
   - component: {fileID: 1918461660}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3990,11 +3991,11 @@ GameObject:
   - component: {fileID: 1995691984}
   m_Layer: 5
   m_Name: KeyText
-  m_TagString: Untagged
+  m_TagString: KeyText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1995691983
 RectTransform:
   m_ObjectHideFlags: 0
