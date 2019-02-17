@@ -3613,6 +3613,7 @@ MonoBehaviour:
   _CommandText: {fileID: 1995691982}
   _UIquest: {fileID: 1287365818}
   _Player: {fileID: 1918461650}
+  _Rooftop: {fileID: 0}
   questManager: {fileID: 0}
   _Talk: 0
   ID: 1000
@@ -4254,7 +4255,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1388372367, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1388372369, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4300,6 +4301,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1388372368, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1388372370, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
       propertyPath: _CommandDisplay
       value: 
@@ -4332,5 +4337,9 @@ PrefabInstance:
       propertyPath: _Questdisplayname
       value: 
       objectReference: {fileID: 1826125982}
+    - target: {fileID: 1388372370, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15834bd0f9f190e46980f6edaefa990f, type: 3}
