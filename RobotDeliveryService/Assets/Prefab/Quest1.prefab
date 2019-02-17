@@ -170,12 +170,12 @@ GameObject:
   - component: {fileID: 7803468964455713499}
   - component: {fileID: 7803468964455713498}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Quest1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &7803468964455713493
 RectTransform:
   m_ObjectHideFlags: 0
