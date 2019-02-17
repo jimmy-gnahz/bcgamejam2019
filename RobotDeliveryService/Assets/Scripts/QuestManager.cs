@@ -8,15 +8,21 @@ public class QuestManager : MonoBehaviour
     //public int InternalQuestNumber;
     public static bool isTakingQuest = false;
     public static int questsCompleted;
+    public PlayerController playerObject;
 
-    void Update()
-    {
-        //InternalQuestNumber = ActiveQuestNumber;
-    }
-
-    public static void rewardPlayer(int ID)
+    public void rewardPlayer(int ID)
     {
         questsCompleted += 1;
+        int incrementAmount = 0;
+        if (ID == 100)
+        {
+            incrementAmount = 5; //
+        } else if (ID == 101)
+        {
+            incrementAmount = 4;
+        }
+
+        playerObject.Energy += incrementAmount;
         //increment energy
     }
 }
