@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public float fallingSpeed;
 
 
+    public Transform robot;
     public bool onGround=true;
 
     // Start is called before the first frame update
@@ -51,14 +52,14 @@ public class PlayerController : MonoBehaviour
 
             if (h > 0)
             {
-                //Debug.Log(transform.eulerAngles.y);
-                transform.Rotate(0, 1, 0);
-                if (transform.eulerAngles.y > 300)
-                {
-                    Debug.Log("in here");
-                    transform.Rotate(0, 0, 1);
-                }
-                
+                robot.localRotation = Quaternion.Euler(0, 45, 0);
+            } else if (h < 0)
+            {
+                robot.localRotation = Quaternion.Euler(0, -45, 0);
+            }
+            else
+            {
+                robot.localRotation = Quaternion.Euler(0, -90, 0);
             }
 
         }
@@ -77,8 +78,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag.Equals("floor")&&!onGround)//landing
+        Debug.Log(collision);
+        Debug.Log(collision.gameObject.tag.Equals("floor"));
+        if (collision.gameObject.tag.Equals("floor") && !onGround)//landing
         {
+            Debug.Log("oncollision ");
             onGround = true;
             player.useGravity = true ;
             player.transform.Rotate(-90, 0, 0);
@@ -95,7 +99,7 @@ public class PlayerController : MonoBehaviour
             player.useGravity = false;
             onGround = false;
             player.transform.Translate(0, 0, 0.8f);
-            //player.transform.Rotate(90, 0, 0);
+            player.transform.Rotate(90, 0, 0);
 			// player.constraints
 
 			playerAnimator.SetBool("isFlying", true);
