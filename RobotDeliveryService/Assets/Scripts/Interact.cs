@@ -6,12 +6,12 @@ using UnityEngine.UI;
 public class Interact : MonoBehaviour
 {
     public float _Distance;
-    public GameObject _CommandDisplay;
-    public GameObject _CommandText;
-    public GameObject _UIquest;
-    public GameObject _Player;
+    GameObject _CommandDisplay;
+    GameObject _CommandText;
+    GameObject _UIquest;
+    GameObject _Player;
 
-    public GameObject _Rooftop;
+    GameObject _Rooftop;
 
     public QuestManager questManager;
     public bool _Talk = false;
@@ -21,24 +21,30 @@ public class Interact : MonoBehaviour
     // Receiving NPC: ID in range of 100 - 199
     public int ID; 
 
-    public GameObject _UIQuestinfo; 
-    public GameObject _UIQuestname;
-    public GameObject _Questdisplayname;
+    GameObject _UIQuestinfo; 
+    GameObject _UIQuestname;
+    GameObject _Questdisplayname;
 
-    private GameObject _Object;
+    GameObject _Object;
     public GameObject[] buttons;
 
     private void Awake()
     {
         _Object = this.gameObject;
-        _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
-        _CommandText = GameObject.FindGameObjectWithTag("KeyText");
-        _UIquest = GameObject.FindGameObjectWithTag("UIquest");
-        _UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
-        _UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
-        _Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
-        _Player = GameObject.FindGameObjectWithTag("Player");
-    }
+        _CommandDisplay = UIElements.inst.CommandDisplay;
+		_CommandDisplay.SetActive(false);
+		_CommandText = UIElements.inst.CommandText;
+		_CommandText.SetActive(false);
+		_UIquest = UIElements.inst.UIquest;
+        _UIQuestinfo = UIElements.inst.UIQuestinfo;
+        _UIQuestname = UIElements.inst.UIQuestname;
+        _Questdisplayname = UIElements.inst.Questdisplayname;
+        _Player = UIElements.inst.Player;
+
+		if (tag == "Building")
+			_Rooftop = transform.GetChild(0).gameObject;
+
+	}
 
     void Update()
     {
@@ -121,15 +127,27 @@ public class Interact : MonoBehaviour
                     }
                     else if (ID == 1)
                     {
-                        ; // Keep going
+                        _UIQuestinfo.GetComponent<Text>().text = "Second Quest Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "Second Quest Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "Second Quest DisplayName Placeholder";
+                        QuestManager.ActiveQuestID = ID;
+                        _Talk = true;
                     }
-                    else if (QuestManager.ActiveQuestID + 100 == ID)
+                    else if (100 == ID)
                     {
                         QuestManager.isTakingQuest = false;
                         _UIQuestinfo.GetComponent<Text>().text = "First Quest Receiver Info Placeholder";
                         _UIQuestname.GetComponent<Text>().text = "First Quest Receiver Name Placeholder";
                         _Questdisplayname.GetComponent<Text>().text = "First Quest Receiver DisplayName Placeholder";
-                        // TODO: Give player Energy 
+                        _Talk = true;
+                        questManager.rewardPlayer(ID);
+                    }
+                    else if (101 == ID)
+                    {
+                        QuestManager.isTakingQuest = false;
+                        _UIQuestinfo.GetComponent<Text>().text = "Second Quest Receiver Info Placeholder";
+                        _UIQuestname.GetComponent<Text>().text = "Second Quest Receiver Name Placeholder";
+                        _Questdisplayname.GetComponent<Text>().text = "Second Quest Receiver DisplayName Placeholder";
                         _Talk = true;
                         questManager.rewardPlayer(ID);
                     }
