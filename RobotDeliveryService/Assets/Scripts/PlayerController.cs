@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody player;
     private Quaternion initialRotation;
 
-	public Animator playerAnimator;
+    public Animator playerAnimator;
 
 
     public int Energy;
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     public bool isSuiside = false;
 
     public Transform robot;
-    public bool onGround=true;
+    public bool onGround = true;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
         Energy = MaxEnergy;
         isSuiside = false;
 
-	}
+    }
 
     private void FixedUpdate()
     {
@@ -109,11 +109,11 @@ public class PlayerController : MonoBehaviour
 
                 transform.localPosition += velocity * Time.fixedDeltaTime;
 
-				if (velocity.Equals(Vector3.zero))
-					playerAnimator.SetBool("isMoving", false);
-				else
-					playerAnimator.SetBool("isMoving", true);
-			}
+                if (velocity.Equals(Vector3.zero))
+                    playerAnimator.SetBool("isMoving", false);
+                else
+                    playerAnimator.SetBool("isMoving", true);
+            }
 
         }
 
@@ -145,11 +145,11 @@ public class PlayerController : MonoBehaviour
             EnergyTimer = 0;//grace reset on landing and taking off
             Debug.Log("oncollision ");
             onGround = true;
-            player.useGravity = true ;
+            player.useGravity = true;
             player.transform.Rotate(-90, 0, 0);
 
-			playerAnimator.SetBool("isFlying", false);
-		}
+            playerAnimator.SetBool("isFlying", false);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -162,6 +162,7 @@ public class PlayerController : MonoBehaviour
                 player.transform.Rotate(180, 0, 0);
 
                 isSuiside = true;
+                playerAnimator.SetBool("isFlying", true);
             }
             else
             {
@@ -175,9 +176,9 @@ public class PlayerController : MonoBehaviour
                 playerAnimator.SetBool("isFlying", true);
             }
 
-           
-		}
-               
+
+        }
+
     }
 
     private void crash()
