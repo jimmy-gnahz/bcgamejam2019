@@ -64,12 +64,12 @@ public class Interact : MonoBehaviour
 		if (_Player == null)
 			_Player = GameObject.FindGameObjectWithTag("Player");
 
- /*       if (tag == "Building")
-        {
-            _Rooftop = transform.parent.GetChild(1).gameObject;
-            print(_Rooftop.tag);
-        }
-*/    }
+        //if (tag == "Building")
+        //{
+        //    _Rooftop = transform.parent.GetChild(1).gameObject;
+        //    print(_Rooftop.tag);
+        //}
+    }
 
  
 	
