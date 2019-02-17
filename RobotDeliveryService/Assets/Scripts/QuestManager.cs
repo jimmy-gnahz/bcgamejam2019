@@ -21,21 +21,35 @@ public class QuestManager : MonoBehaviour
     public GameObject NPC104;
 
     private int firstQuestTriggerTime = 145;
-    private int secondQuestTriggerTime = 120;   
+    private int secondQuestTriggerTime = 135;
+	private int thirdQuestTriggerTime = 125;
+	private int fourthQuestTriggerTime = 115;
+	private int fifthQuestTriggerTime = 105;
 
-    void FixedUpdate()
+	void FixedUpdate()
     {
         if (GlobalTimer.theSeconds == firstQuestTriggerTime)
         {
             NPC000.SetActive(true);
             NPC100.SetActive(true);
         }
-        if (GlobalTimer.theSeconds == secondQuestTriggerTime)
-        {
-            NPC001.SetActive(true);
-            NPC101.SetActive(true);
-        }
-    }
+		if (GlobalTimer.theSeconds == secondQuestTriggerTime) {
+			NPC001.SetActive(true);
+			NPC101.SetActive(true);
+		}
+		if (GlobalTimer.theSeconds == thirdQuestTriggerTime) {
+			NPC002.SetActive(true);
+			NPC102.SetActive(true);
+		}
+		if (GlobalTimer.theSeconds == fourthQuestTriggerTime) {
+			NPC003.SetActive(true);
+			NPC103.SetActive(true);
+		}
+		if (GlobalTimer.theSeconds == fifthQuestTriggerTime) {
+			NPC004.SetActive(true);
+			NPC104.SetActive(true);
+		}
+	}
 
     public void rewardPlayer(int ID)
     {
@@ -43,17 +57,33 @@ public class QuestManager : MonoBehaviour
         int incrementAmount = 0;
         if (ID == 100)
         {
-            incrementAmount = 5; //
+            incrementAmount = 50; //
             NPC000.SetActive(false);
             NPC100.SetActive(false);
 
         } else if (ID == 101)
         {
-            incrementAmount = 4;
+            incrementAmount = 50;
             NPC001.SetActive(false);
             NPC101.SetActive(false);
         }
+		else if (ID == 101) {
+			incrementAmount = 50;
+			NPC001.SetActive(false);
+			NPC101.SetActive(false);
+		}
+		else if (ID == 101) {
+			incrementAmount = 50;
+			NPC001.SetActive(false);
+			NPC101.SetActive(false);
+		}
+		else if (ID == 101) {
+			incrementAmount = 40;
+			NPC001.SetActive(false);
+			NPC101.SetActive(false);
+		}
 
-        playerObject.Energy += incrementAmount;
+
+		playerObject.Energy += incrementAmount;
     }
 }
