@@ -57,12 +57,12 @@ public class Interact : MonoBehaviour
         _Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
         _Player = GameObject.FindGameObjectWithTag("Player");
 
-        if (tag == "Building")
+ /*       if (tag == "Building")
         {
             _Rooftop = transform.parent.GetChild(1).gameObject;
             print(_Rooftop.tag);
         }
-    }
+*/    }
 
  
 	
