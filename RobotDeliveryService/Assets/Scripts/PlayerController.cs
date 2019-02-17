@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
 
 	public Animator playerAnimator;
 
+
+    public int Energy;
+    public int MaxEnergy;
+    public float EnergyCostWalk; //units of energy per second
+    public float EnergyCostGlide; //units of energy per second
+    private float EnergyTimer;
+
     //for walking
     public float groundSpeed;
 
@@ -18,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public float accelration;
     public float fallingSpeed;
 
+    public bool isSuiside = false;
 
     public Transform robot;
     public bool onGround=true;
@@ -27,6 +35,8 @@ public class PlayerController : MonoBehaviour
     {
         player = GetComponent<Rigidbody>();
         initialRotation = player.rotation;
+        Energy = MaxEnergy;
+        isSuiside = false;
 
 	}
 
@@ -37,43 +47,71 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity; // on ground
         Vector3 velocity2d; // flying planar velocity
         Vector3 velocityVertical; // falling velocity
-        if (!onGround)//gliding
+        if (isSuiside) //leap of faith
         {
-            velocityVertical = new Vector3(0, -fallingSpeed, 0);
-            transform.localPosition += velocityVertical * Time.fixedDeltaTime;
-            velocity2d = new Vector3(0,  speed * v,0);
-            transform.Rotate( 0,0,-h * rotateSpeed);
-
-            if (v > 0)
+            onGround = false;
+            player.transform.Translate(new Vector3(0, fallingSpeed * 2 * Time.fixedDeltaTime, 0));
+            player.transform.Rotate(new Vector3(0, 1.5f, 0));
+        }
+        else
+        {
+            if (!onGround)//gliding
             {
-                velocity2d = transform.TransformDirection(velocity2d);
-                transform.localPosition += velocity2d * Time.fixedDeltaTime;
+                EnergyTimer += Time.fixedDeltaTime;// moving or not, gliding consumes energy
+                if (EnergyTimer > 1f / EnergyCostGlide)//glide long enough to lose energy
+                {
+                    Energy--;
+                    EnergyTimer = 0;
+                }
+                velocityVertical = new Vector3(0, -fallingSpeed, 0);
+                transform.localPosition += velocityVertical * Time.fixedDeltaTime;
+                velocity2d = new Vector3(0, speed * v, 0);
+                transform.Rotate(0, 0, -h * rotateSpeed);
+
+                if (v > 0)
+                {
+                    velocity2d = transform.TransformDirection(velocity2d);
+                    transform.localPosition += velocity2d * Time.fixedDeltaTime;
+                }
+
+                if (h > 0)
+                {
+                    robot.localRotation = Quaternion.Euler(0, 45, 0);
+                }
+                else if (h < 0)
+                {
+                    robot.localRotation = Quaternion.Euler(0, -45, 0);
+                }
+                else
+                {
+                    robot.localRotation = Quaternion.Euler(0, -90, 0);
+                }
+
             }
 
-            if (h > 0)
-            {
-                robot.localRotation = Quaternion.Euler(0, 45, 0);
-            } else if (h < 0)
-            {
-                robot.localRotation = Quaternion.Euler(0, -45, 0);
-            }
             else
             {
-                robot.localRotation = Quaternion.Euler(0, -90, 0);
+                //moving forward and backward
+                velocity = new Vector3(0, 0, groundSpeed * v);
+                if (v != 0) //only walking forward or backward will consume energy
+                    EnergyTimer += Time.fixedDeltaTime;
+                {
+                    if (EnergyTimer > 1 / EnergyCostWalk)//walk long enough to lose energy
+                    {
+                        Energy--;
+                        EnergyTimer = 0;
+                    }
+                }
+
+                velocity = transform.TransformDirection(velocity);
+                // turning
+                transform.Rotate(0, h * rotateSpeed, 0);
+
+                transform.localPosition += velocity * Time.fixedDeltaTime;
             }
 
         }
 
-        else{
-            //moving forward and backward
-            velocity = new Vector3(0, 0, groundSpeed * v);
-            velocity = transform.TransformDirection(velocity);
-            // turning
-            transform.Rotate(0, h * rotateSpeed, 0);
-
-            transform.localPosition += velocity * Time.fixedDeltaTime;
-        }
-       
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -82,6 +120,12 @@ public class PlayerController : MonoBehaviour
         Debug.Log(collision.gameObject.tag.Equals("floor"));
         if (collision.gameObject.tag.Equals("floor") && !onGround)//landing
         {
+            if (isSuiside)
+            {
+                Energy = 0;
+                isSuiside = false;
+            }
+            EnergyTimer = 0;//grace reset on landing and taking off
             Debug.Log("oncollision ");
             onGround = true;
             player.useGravity = true ;
@@ -95,14 +139,26 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Roof"))// taking off
         {
-            
-            player.useGravity = false;
-            onGround = false;
-            player.transform.Translate(0, 0, 0.8f);
-            player.transform.Rotate(90, 0, 0);
-			// player.constraints
+            if (Input.GetAxis("Vertical") < 0)
+            {
+                player.transform.Translate(0, 0, -1.8f);
+                player.transform.Rotate(180, 0, 0);
 
-			playerAnimator.SetBool("isFlying", true);
+                isSuiside = true;
+            }
+            else
+            {
+                EnergyTimer = 0;//grace reset on landing and taking off
+                player.useGravity = false;
+                onGround = false;
+                player.transform.Translate(0, 0, 0.8f);
+                player.transform.Rotate(90, 0, 0);
+                // player.constraints
+
+                playerAnimator.SetBool("isFlying", true);
+            }
+
+           
 		}
                
     }
