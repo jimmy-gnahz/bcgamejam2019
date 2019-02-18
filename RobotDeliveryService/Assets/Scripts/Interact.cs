@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Interact : MonoBehaviour
 {
     public float _Distance;
+//    public Dialog _Dialog;
     public GameObject _CommandDisplay;
     public GameObject _CommandText;
     public GameObject _UIquest;
@@ -49,17 +50,19 @@ public class Interact : MonoBehaviour
     private void Awake()
     {
         _Object = gameObject;
-		if (_CommandDisplay == null)
-			_CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
-		if (_CommandText == null)
-			_CommandText = GameObject.FindGameObjectWithTag("KeyText");
-		if (_UIquest == null)
+
+        if (_CommandDisplay == null)
+            _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
+        if (_CommandText == null)
+		_CommandText = GameObject.FindGameObjectWithTag("KeyText");
+        if (_UIquest == null)
 			_UIquest = GameObject.FindGameObjectWithTag("UIquest");
 		if (_UIQuestinfo == null)
 			_UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
 		if (_UIQuestname == null)
 			_UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
-		if (_Questdisplayname == null)
+        if (_Questdisplayname == null)
+
 			_Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
 		if (_Player == null)
 			_Player = GameObject.FindGameObjectWithTag("Player");
@@ -77,7 +80,9 @@ public class Interact : MonoBehaviour
     void Update()
     {
         
-        _Distance = PlayerCasting.Distancefromtarget;
+      //  _Distance = PlayerCasting.Distancefromtarget;
+        Vector3 plainerPos = new Vector3(transform.position.x, 0, transform.position.z);
+        _Distance = (_Player.transform.position - plainerPos).magnitude;
 		if (QuestManager.isTakingQuest ) {
 		
 			if (Input.GetButtonDown("Accept") && _Talk) {
@@ -144,9 +149,11 @@ public class Interact : MonoBehaviour
             {
                 if (_Object.tag.Contains("Building"))
                 {
+
+//
                     _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
-                    _Player.transform.Translate(Vector3.forward * 1.5f);
-					FindObjectOfType<QuestManager>().HideLight();
+                    _Player.transform.SetPositionAndRotation(_Rooftop.transform.position, _Player.transform.rotation);
+                    FindObjectOfType<QuestManager>().HideLight();
 
 				}
                 else
@@ -155,10 +162,11 @@ public class Interact : MonoBehaviour
 					Debug.Log(" is ID : " + ID);
 					if (ID >= 100 && ID < 200)
                     {
-                        foreach (GameObject go in buttons)
-                        {
-                            go.SetActive(false);
-                        }
+                        /*                        foreach (GameObject go in buttons)
+                                                {
+                                                    go.SetActive(false);
+                                              }
+                         */
                     }
                     if (ID == 0)    
                     {   //TODO: Change all this into an array
@@ -281,6 +289,7 @@ public class Interact : MonoBehaviour
 					}
 				}
 
+ //               _CommandDisplay.
                 _CommandDisplay.SetActive(false);
                 _CommandText.SetActive(false);
 
