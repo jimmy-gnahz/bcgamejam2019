@@ -145,7 +145,8 @@ public class Interact : MonoBehaviour
 
         if (Input.GetButtonDown("Action"))
         {
-            if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
+            //          if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
+            if (_Distance <= 3 && !_Talk)
             {
                 if (_Object.tag.Contains("Building"))
                 {
@@ -153,22 +154,29 @@ public class Interact : MonoBehaviour
 //
                     _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
                     _Player.transform.SetPositionAndRotation(_Rooftop.transform.position, _Player.transform.rotation);
-                    FindObjectOfType<QuestManager>().HideLight();
-
+                    //                    FindObjectOfType<QuestManager>().HideLight();
+//                    questManager.HideLight();
 				}
                 else
                 {   // Assume object is either building or NPC
                     
 					Debug.Log(" is ID : " + ID);
-					if (ID >= 100 && ID < 200)
+                    if (ID >= 100 && ID < 200)
                     {
-                        /*                        foreach (GameObject go in buttons)
-                                                {
-                                                    go.SetActive(false);
-                                              }
-                         */
+                        foreach (GameObject go in buttons)
+                        {
+                            go.SetActive(false);
+                        }
+
                     }
-                    if (ID == 0)    
+                    else if (ID < 100)
+                    {
+                        foreach (GameObject go in buttons)
+                        {
+                            go.SetActive(true);
+                        }
+                    }
+                        if (ID == 0)    
                     {   //TODO: Change all this into an array
 						_UIquest.SetActive(true);
 						_UIQuestinfo.GetComponent<Text>().text = "Dear K1ndess ROBO, \nHello, I need you to grab this manga…it’s called Undying lover to Tentacle-senpai.I’m unable to buy it because of reason. So please deliver that manga to me…< 3";
