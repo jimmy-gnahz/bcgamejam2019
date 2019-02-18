@@ -152,7 +152,7 @@ BoxCollider:
   m_GameObject: {fileID: 9180438608788852002}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -163,11 +163,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4140750346834919655}
     m_Modifications:
-    - target: {fileID: 7070566804475587120, guid: 1a5281b283717a642b89f50ea8a1ddeb,
-        type: 3}
-      propertyPath: m_Name
-      value: Bldg 15F
-      objectReference: {fileID: 0}
     - target: {fileID: 5573729959314196978, guid: 1a5281b283717a642b89f50ea8a1ddeb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -222,6 +217,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070566804475587120, guid: 1a5281b283717a642b89f50ea8a1ddeb,
+        type: 3}
+      propertyPath: m_Name
+      value: Bldg 15F
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a5281b283717a642b89f50ea8a1ddeb, type: 3}
@@ -328,11 +328,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4140750346834919655}
     m_Modifications:
-    - target: {fileID: 5321738823859818499, guid: 223b4b2d185c67e4596e95cdb465eb30,
-        type: 3}
-      propertyPath: m_Name
-      value: bldg 20F
-      objectReference: {fileID: 0}
     - target: {fileID: 1559193343872316742, guid: 223b4b2d185c67e4596e95cdb465eb30,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -387,6 +382,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5321738823859818499, guid: 223b4b2d185c67e4596e95cdb465eb30,
+        type: 3}
+      propertyPath: m_Name
+      value: bldg 20F
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 223b4b2d185c67e4596e95cdb465eb30, type: 3}
