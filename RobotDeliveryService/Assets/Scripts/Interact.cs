@@ -146,7 +146,9 @@ public class Interact : MonoBehaviour
                 {
                     _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
                     _Player.transform.Translate(Vector3.forward * 1.5f);
-                }
+					FindObjectOfType<QuestManager>().HideLight();
+
+				}
                 else
                 {   // Assume object is either building or NPC
                     

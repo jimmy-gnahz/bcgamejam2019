@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
     public static int ActiveQuestID; //Giver's ID
     //public int InternalQuestNumber;
     public static bool isTakingQuest = false;
+	public GameObject lightB;
     public static int questsCompleted;
     public PlayerController playerObject;
     public GameObject NPC000;
@@ -21,13 +22,45 @@ public class QuestManager : MonoBehaviour
     public GameObject NPC104;
 
     private int firstQuestTriggerTime = 145;
-    private int secondQuestTriggerTime = 135;
-	private int thirdQuestTriggerTime = 125;
-	private int fourthQuestTriggerTime = 115;
-	private int fifthQuestTriggerTime = 105; //TODO
+    private int secondQuestTriggerTime = 100;
+	private int thirdQuestTriggerTime = 50;
+	private int fourthQuestTriggerTime = 5;
+	private int fifthQuestTriggerTime = -40; //TODO
 
+	private void Start() {
+	}
+
+	public void HideLight() {
+		lightB.SetActive(false);
+	}
 	void FixedUpdate()
     {
+
+		if (isTakingQuest) {
+			lightB.SetActive(true);
+			switch (ActiveQuestID) {
+				case 0:
+					lightB.transform.position = NPC100.transform.position;
+					break;
+				case 1:
+					lightB.transform.position = NPC101.transform.position;
+					break;
+				case 2:
+					lightB.transform.position = NPC102.transform.position;
+					break;
+				case 3:
+					lightB.transform.position = NPC103.transform.position;
+					break;
+				case 4:
+					lightB.transform.position = NPC104.transform.position;
+					break;
+				default:
+					break;
+			}
+		}
+
+
+
         if (GlobalTimer.theSeconds == firstQuestTriggerTime)
         {
             NPC000.SetActive(true);
