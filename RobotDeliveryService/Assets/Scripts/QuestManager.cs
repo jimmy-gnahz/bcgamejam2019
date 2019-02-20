@@ -22,10 +22,10 @@ public class QuestManager : MonoBehaviour
     public GameObject NPC104;
 
     private int firstQuestTriggerTime = 145;
-    private int secondQuestTriggerTime = 100;
-	private int thirdQuestTriggerTime = 50;
-	private int fourthQuestTriggerTime = 5;
-	private int fifthQuestTriggerTime = -40; //TODO
+    private int secondQuestTriggerTime = 145;
+	private int thirdQuestTriggerTime = 145;
+	private int fourthQuestTriggerTime = 145;
+	private int fifthQuestTriggerTime = 145; //TODO
 
 	private void Start() {
 	}
