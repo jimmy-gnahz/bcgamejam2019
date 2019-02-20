@@ -150,8 +150,6 @@ public class Interact : MonoBehaviour
             {
                 if (_Object.tag.Contains("Building"))
                 {
-
-//
                     _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
                     _Player.transform.SetPositionAndRotation(_Rooftop.transform.position, _Player.transform.rotation);
                     //                    FindObjectOfType<QuestManager>().HideLight();
@@ -262,7 +260,7 @@ public class Interact : MonoBehaviour
 					else if (102 == ID && QuestManager.ActiveQuestID == 2) {
 						_UIquest.SetActive(true);
 						QuestManager.isTakingQuest = false;
-						_UIQuestinfo.GetComponent<Text>().text = "Thank you K1ndness for deliver these to me. Because of you, my son is one step closer to becoming a billionaire.";
+						_UIQuestinfo.GetComponent<Text>().text = "Thank you Kindness for deliver these to me. Because of you, my son is one step closer to becoming a billionaire.";
 						_UIQuestname.GetComponent<Text>().text = "Getting ahead in life";
 						_Questdisplayname.GetComponent<Text>().text = "Getting ahead in life";
 						_Talk = true;
