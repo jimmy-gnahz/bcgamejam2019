@@ -8,12 +8,11 @@ public class RedirectToLevel : MonoBehaviour
 
     public static int redirectToLevel = 3;
 
-
     void Update()
     {
-        if (redirectToLevel == 3)
-        {
-            SceneManager.LoadScene(redirectToLevel);
-        }
+        //if (redirectToLevel == 3)
+        //{
+        //    SceneManager.LoadScene(redirectToLevel);
+        //}
     }
 }

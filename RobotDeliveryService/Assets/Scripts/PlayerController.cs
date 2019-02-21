@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         Vector3 velocity; // on ground
         Vector3 velocity2d; // flying planar velocity
         Vector3 velocityVertical; // falling velocity
-        if (isSuiside) //leap of faith
+        if (isSuiside) //jump backwards from a building
         {
             onGround = false;
             player.transform.Translate(new Vector3(0, fallingSpeed * 2 * Time.fixedDeltaTime, 0));
@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!onGround)//gliding
             {
+                // Energy
                 EnergyTimer += Time.fixedDeltaTime;// moving or not, gliding consumes energy
                 if (EnergyTimer > 1f / EnergyCostGlide)//glide long enough to lose energy
                 {
@@ -74,6 +75,7 @@ public class PlayerController : MonoBehaviour
                     EnergyTimer = 0;
                 }
 
+                // Gliding speed
                 velocityVertical = new Vector3(0, -fallingSpeed, 0);
                 transform.localPosition += velocityVertical * Time.fixedDeltaTime;
                 velocity2d = new Vector3(0, speed * v, 0);
@@ -103,7 +105,7 @@ public class PlayerController : MonoBehaviour
 
             else
             {
-                //moving forward and backward
+                //moving forward and backward on the ground
                 velocity = new Vector3(0, 0, groundSpeed * v);
                 if (v != 0) //only walking forward or backward will consume energy
                     EnergyTimer += Time.fixedDeltaTime;
@@ -124,7 +126,7 @@ public class PlayerController : MonoBehaviour
                 }
 
                 velocity = transform.TransformDirection(velocity);
-                // turning
+                // turning on the ground
                 transform.Rotate(0, h * rotateSpeed, 0);
 
                 transform.localPosition += velocity * Time.fixedDeltaTime;

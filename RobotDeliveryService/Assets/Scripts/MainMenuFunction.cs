@@ -11,8 +11,7 @@ public class MainMenuFunction : MonoBehaviour
 
     private void Start()
     {
-        //bestScore = PlayerPrefs.GetInt("");
-
+        //bestScore = PlayerPrefs.GetInt("");   
     }
 
     public void PlayGame()
