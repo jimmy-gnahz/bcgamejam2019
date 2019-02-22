@@ -1,11 +1,18 @@
-﻿using System.Collections;
+﻿//**************************************************************
+//
+//  This code is intended to be attached to objects that
+//  can interact with the player, such as buildings and NPC's
+//
+//**************************************************************
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Interact : MonoBehaviour
 {
-    public float _Distance;
+    public float distToPlayer;
     public GameObject commandTextUI;
     public GameObject commandLetterUI;
     public GameObject questUI;
@@ -26,6 +33,8 @@ public class Interact : MonoBehaviour
     public GameObject currentQuestNameUI;
     public GameObject[] buttons;
 
+    private int triggerActionPromptDistance = 3;
+
     private void Awake()
     {
         if (commandTextUI == null)
@@ -39,11 +48,9 @@ public class Interact : MonoBehaviour
 		if (questNameUI == null)
 			questNameUI = GameObject.FindGameObjectWithTag("UIQuestname");
         if (currentQuestNameUI == null)
-
 			currentQuestNameUI = GameObject.FindGameObjectWithTag("Questdisplayname");
 		if (player == null)
 			player = GameObject.FindGameObjectWithTag("Player");
-
         if (gameObject.tag.Equals("Building"))
         {
             rooftop = transform.parent.GetChild(1).gameObject;
@@ -54,31 +61,36 @@ public class Interact : MonoBehaviour
  
     void Update()
     {
-        
-      //  _Distance = PlayerCasting.Distancefromtarget;
-        Vector3 plainerPos = new Vector3(transform.position.x, 0, transform.position.z);
-        _Distance = (player.transform.position - plainerPos).magnitude;
-		if (QuestManager.isTakingQuest ) {
-		
-			if (Input.GetButtonDown("Accept") && isTalking) {
-				questUI.SetActive(false);
-				currentQuestNameUI.GetComponent<Text>().text = "Quest: ";
-				currentQuestNameUI.SetActive(true);
-				QuestManager.isTakingQuest = false;
-			}
-		}
-        else if (Input.GetButtonDown("Accept") && isTalking)
+        // 2D coordinates of the object, and 2D distance
+        Vector3 planarPos = new Vector3(transform.position.x, 0, transform.position.z); 
+        distToPlayer = (player.transform.position - planarPos).magnitude;
+
+        HandleInputs();
+    }
+
+    public void HandleInputs()
+    {
+        if (QuestManager.isTakingQuest) 
+        {
+            if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Accept")) && isTalking)
+            {
+                questUI.SetActive(false);
+                currentQuestNameUI.GetComponent<Text>().text = "Quest: ";
+                currentQuestNameUI.SetActive(true);
+                QuestManager.isTakingQuest = false;
+            }
+        }
+        else if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Accept")) && isTalking)
         {
             AcceptQuest();
             isTalking = false;
         }
-		else if(Input.GetButtonDown("Return") && isTalking)
+        else if (Input.GetButtonDown("Return") && isTalking)
         {
             DeniedQuest();
             isTalking = false;
-			QuestManager.isTakingQuest = false;
-
-		}
+            QuestManager.isTakingQuest = false;
+        }
     }
 
     public void AcceptQuest()
@@ -98,7 +110,7 @@ public class Interact : MonoBehaviour
     void OnMouseOver()
     {
         //Cannot talk to someone on a rooftop or high ground
-        if (_Distance <= 3 && 
+        if (distToPlayer <= triggerActionPromptDistance && 
 			player.transform.position.y < 1.5 && 
 			!isTalking)
         {
@@ -120,15 +132,13 @@ public class Interact : MonoBehaviour
 
         if (Input.GetButtonDown("Action"))
         {
-            //          if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
-            if (_Distance <= 3 && !isTalking)
+
+            if (distToPlayer <= triggerActionPromptDistance && !isTalking)
             {
                 if (gameObject.tag.Contains("Building"))
                 {
                     player.transform.Translate(Vector3.up * rooftop.transform.position.y);
                     player.transform.SetPositionAndRotation(rooftop.transform.position, player.transform.rotation);
-                    //                    FindObjectOfType<QuestManager>().HideLight();
-//                    questManager.HideLight();
 				}
                 else
                 {   // Assume object is either building or NPC
@@ -269,15 +279,10 @@ public class Interact : MonoBehaviour
 						isTalking = true;
 					}
 				}
-
- //               _CommandDisplay.
                 commandTextUI.SetActive(false);
-                commandLetterUI.SetActive(false);
-
+                commandLetterUI.SetActive(false)
             }
         }
-
-
     }
 
     void OnMouseExit()

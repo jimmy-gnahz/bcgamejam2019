@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SplashToMenu : MonoBehaviour
 {
-
     public GameObject theLogo;
 
     void Start()
