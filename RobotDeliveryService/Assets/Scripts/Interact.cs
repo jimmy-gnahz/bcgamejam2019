@@ -6,101 +6,76 @@ using UnityEngine.UI;
 public class Interact : MonoBehaviour
 {
     public float _Distance;
-//    public Dialog _Dialog;
-    public GameObject _CommandDisplay;
-    public GameObject _CommandText;
-    public GameObject _UIquest;
-    public GameObject _Player;
+    public GameObject commandTextUI;
+    public GameObject commandLetterUI;
+    public GameObject questUI;
+    public GameObject player;
 
-    public GameObject _Rooftop;
+    public GameObject rooftop;
 
     public QuestManager questManager;
-    public static bool _Talk = false;
+    public static bool isTalking = false;
 
     // Building ID in range of 1000-9999.
     // Quest Giving NPC: ID in range of 0 - 99.
     // Receiving NPC: ID in range of 100 - 199
     public int ID;
 
-    public GameObject _UIQuestinfo;
-    public GameObject _UIQuestname;
-    public GameObject _Questdisplayname;
-
-    GameObject _Object;
+    public GameObject questInfoUI;
+    public GameObject questNameUI;
+    public GameObject currentQuestNameUI;
     public GameObject[] buttons;
 
-   /* private void Start()
-    {
-        /*      _Object = this.gameObject;
-              _CommandDisplay = UIElements.inst.CommandDisplay;
-              _CommandDisplay.SetActive(false);
-              _CommandText = UIElements.inst.CommandText;
-              print(_CommandText);
-              _CommandText.SetActive(false);
-              _UIquest = UIElements.inst.UIQuest;
-              _UIQuestinfo = UIElements.inst.UIQuestinfo;
-              _UIQuestname = UIElements.inst.UIQuestname;
-              _Questdisplayname = UIElements.inst.QuestDisplayName;
-              _Player = UIElements.inst.Player;
-                     if (tag == "Building")
-			_Rooftop = transform.GetChild(0).gameObject;
-
-
-*/
     private void Awake()
     {
-        _Object = gameObject;
+        if (commandTextUI == null)
+            commandTextUI = GameObject.FindGameObjectWithTag("ActionText");
+        if (commandLetterUI == null)
+		commandLetterUI = GameObject.FindGameObjectWithTag("KeyText");
+        if (questUI == null)
+			questUI = GameObject.FindGameObjectWithTag("UIquest");
+		if (questInfoUI == null)
+			questInfoUI = GameObject.FindGameObjectWithTag("UIQuestinfo");
+		if (questNameUI == null)
+			questNameUI = GameObject.FindGameObjectWithTag("UIQuestname");
+        if (currentQuestNameUI == null)
 
-        if (_CommandDisplay == null)
-            _CommandDisplay = GameObject.FindGameObjectWithTag("ActionText");
-        if (_CommandText == null)
-		_CommandText = GameObject.FindGameObjectWithTag("KeyText");
-        if (_UIquest == null)
-			_UIquest = GameObject.FindGameObjectWithTag("UIquest");
-		if (_UIQuestinfo == null)
-			_UIQuestinfo = GameObject.FindGameObjectWithTag("UIQuestinfo");
-		if (_UIQuestname == null)
-			_UIQuestname = GameObject.FindGameObjectWithTag("UIQuestname");
-        if (_Questdisplayname == null)
+			currentQuestNameUI = GameObject.FindGameObjectWithTag("Questdisplayname");
+		if (player == null)
+			player = GameObject.FindGameObjectWithTag("Player");
 
-			_Questdisplayname = GameObject.FindGameObjectWithTag("Questdisplayname");
-		if (_Player == null)
-			_Player = GameObject.FindGameObjectWithTag("Player");
-
-        //if (tag == "Building")
-        //{
-        //    _Rooftop = transform.parent.GetChild(1).gameObject;
-        //    print(_Rooftop.tag);
-        //}
+        if (gameObject.tag.Equals("Building"))
+        {
+            rooftop = transform.parent.GetChild(1).gameObject;
+            print(rooftop.tag);
+        }
     }
 
  
-	
-
     void Update()
     {
         
       //  _Distance = PlayerCasting.Distancefromtarget;
         Vector3 plainerPos = new Vector3(transform.position.x, 0, transform.position.z);
-        _Distance = (_Player.transform.position - plainerPos).magnitude;
+        _Distance = (player.transform.position - plainerPos).magnitude;
 		if (QuestManager.isTakingQuest ) {
 		
-			if (Input.GetButtonDown("Accept") && _Talk) {
-				_UIquest.SetActive(false);
-				_Questdisplayname.GetComponent<Text>().text = "Quest: ";
-				_Questdisplayname.SetActive(true);
+			if (Input.GetButtonDown("Accept") && isTalking) {
+				questUI.SetActive(false);
+				currentQuestNameUI.GetComponent<Text>().text = "Quest: ";
+				currentQuestNameUI.SetActive(true);
 				QuestManager.isTakingQuest = false;
 			}
 		}
-        else if (Input.GetButtonDown("Accept") && _Talk)
+        else if (Input.GetButtonDown("Accept") && isTalking)
         {
             AcceptQuest();
-            _Talk = false;
+            isTalking = false;
         }
-		else if(Input.GetButtonDown("Return") && _Talk)
+		else if(Input.GetButtonDown("Return") && isTalking)
         {
             DeniedQuest();
-            _Talk = false;
+            isTalking = false;
 			QuestManager.isTakingQuest = false;
 
 		}
@@ -108,50 +83,50 @@ public class Interact : MonoBehaviour
 
     public void AcceptQuest()
     {
-        _UIquest.SetActive(false);
-        _Questdisplayname.GetComponent<Text>().text = "Quest: " + _UIQuestinfo.GetComponent<Text>().text;
-        _Questdisplayname.SetActive(true);
+        questUI.SetActive(false);
+        currentQuestNameUI.GetComponent<Text>().text = "Quest: " + questInfoUI.GetComponent<Text>().text;
+        currentQuestNameUI.SetActive(true);
         QuestManager.isTakingQuest = true;
     }
 
     void DeniedQuest()
     {
-        _UIquest.SetActive(false);
-        _Questdisplayname.SetActive(false);
+        questUI.SetActive(false);
+        currentQuestNameUI.SetActive(false);
     }
 
     void OnMouseOver()
     {
         //Cannot talk to someone on a rooftop or high ground
         if (_Distance <= 3 && 
-			_Player.transform.position.y < 1.5 && 
-			!_Talk)
+			player.transform.position.y < 1.5 && 
+			!isTalking)
         {
-            if (_Object.tag.Contains("NPC"))
+            if (gameObject.tag.Contains("NPC"))
             {
-                _CommandDisplay.GetComponent<Text>().text = "Talk";
-                _CommandText.GetComponent<Text>().text = "E";
+                commandTextUI.GetComponent<Text>().text = "Talk";
+                commandLetterUI.GetComponent<Text>().text = "E";
             }
 
-            else if (_Object.tag.Equals("Building"))
+            else if (gameObject.tag.Equals("Building"))
             {
-                _CommandDisplay.GetComponent<Text>().text = "Use Elevator";
-                _CommandText.GetComponent<Text>().text = "E";
+                commandTextUI.GetComponent<Text>().text = "Use Elevator";
+                commandLetterUI.GetComponent<Text>().text = "E";
             }
 
-            _CommandDisplay.SetActive(true);
-            _CommandText.SetActive(true);
+            commandTextUI.SetActive(true);
+            commandLetterUI.SetActive(true);
         }
 
         if (Input.GetButtonDown("Action"))
         {
             //          if (_Distance <= 3 && _Player.transform.position.y < 1.5 && !_Talk)
-            if (_Distance <= 3 && !_Talk)
+            if (_Distance <= 3 && !isTalking)
             {
-                if (_Object.tag.Contains("Building"))
+                if (gameObject.tag.Contains("Building"))
                 {
-                    _Player.transform.Translate(Vector3.up * _Rooftop.transform.position.y);
-                    _Player.transform.SetPositionAndRotation(_Rooftop.transform.position, _Player.transform.rotation);
+                    player.transform.Translate(Vector3.up * rooftop.transform.position.y);
+                    player.transform.SetPositionAndRotation(rooftop.transform.position, player.transform.rotation);
                     //                    FindObjectOfType<QuestManager>().HideLight();
 //                    questManager.HideLight();
 				}
@@ -176,128 +151,128 @@ public class Interact : MonoBehaviour
                     }
                         if (ID == 0)    
                     {   //TODO: Change all this into an array
-						_UIquest.SetActive(true);
-						_UIQuestinfo.GetComponent<Text>().text = "Dear K1ndess ROBO, \nHello, I need you to grab this manga…it’s called Undying lover to Tentacle-senpai.I’m unable to buy it because of reason. So please deliver that manga to me…< 3";
-                        _UIQuestname.GetComponent<Text>().text = "The Otaku’s needs ";
-						_Questdisplayname.GetComponent<Text>().text = "The Otaku’s needs ";
+						questUI.SetActive(true);
+						questInfoUI.GetComponent<Text>().text = "Dear K1ndess ROBO, \nHello, I need you to grab this manga…it’s called Undying lover to Tentacle-senpai.I’m unable to buy it because of reason. So please deliver that manga to me…< 3";
+                        questNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
+						currentQuestNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
                         QuestManager.ActiveQuestID = ID;
 
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
                     else if (ID == 1)
                     {
-						_UIquest.SetActive(true);
-                        _UIQuestinfo.GetComponent<Text>().text = "Hello K1ndess Robot, /nPlease take this boy and bring him back home. He needs to attend his piano lessons in three minutes. He’s a busy boy and he’s already three months old…. THREE MONTHS!!!!...Driving him around just waste too much precious time where he could be studying math or practicing violin, or composing the next world famous symphony….Please bring him home safely and FAST!!!!!";
+						questUI.SetActive(true);
+                        questInfoUI.GetComponent<Text>().text = "Hello K1ndess Robot, /nPlease take this boy and bring him back home. He needs to attend his piano lessons in three minutes. He’s a busy boy and he’s already three months old…. THREE MONTHS!!!!...Driving him around just waste too much precious time where he could be studying math or practicing violin, or composing the next world famous symphony….Please bring him home safely and FAST!!!!!";
 
-						_UIQuestname.GetComponent<Text>().text = "Bring my Son back home";
-                        _Questdisplayname.GetComponent<Text>().text = "Bring my Son back home";
+						questNameUI.GetComponent<Text>().text = "Bring my Son back home";
+                        currentQuestNameUI.GetComponent<Text>().text = "Bring my Son back home";
                         QuestManager.ActiveQuestID = ID;
-                        _Talk = true;
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+                        isTalking = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (ID == 2) {
-						_UIquest.SetActive(true);
-						_UIQuestinfo.GetComponent<Text>().text = "Hello K1ndess Robot,\nA package from the post office has just arrived and I need you to deliver it to me immediately.Just to make sure you grab everything, the package contains variety textbooks such as Advance Vector Calculus, Theoretical and Experimental Physics, Quantum Computing…. my dear son needs to start early so when he grows up, he’ll be set to become a billionaire.Just imagine it, my son, the next Bill Gates….. NOW HURRY UP, THE MORE TIME YOU WASTE, THE LESS TIME FOR MY SON TO PREPARE FOR HIS LIFE GOAL!!!!!!!!";
-					  _UIQuestname.GetComponent<Text>().text = "Getting ahead in life";
-						_Questdisplayname.GetComponent<Text>().text = "Getting ahead in life";
+						questUI.SetActive(true);
+						questInfoUI.GetComponent<Text>().text = "Hello K1ndess Robot,\nA package from the post office has just arrived and I need you to deliver it to me immediately.Just to make sure you grab everything, the package contains variety textbooks such as Advance Vector Calculus, Theoretical and Experimental Physics, Quantum Computing…. my dear son needs to start early so when he grows up, he’ll be set to become a billionaire.Just imagine it, my son, the next Bill Gates….. NOW HURRY UP, THE MORE TIME YOU WASTE, THE LESS TIME FOR MY SON TO PREPARE FOR HIS LIFE GOAL!!!!!!!!";
+					  questNameUI.GetComponent<Text>().text = "Getting ahead in life";
+						currentQuestNameUI.GetComponent<Text>().text = "Getting ahead in life";
 						QuestManager.ActiveQuestID = ID;
-						_Talk = true;
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						isTalking = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (ID == 3) {
-						_UIquest.SetActive(true);
-						_UIQuestinfo.GetComponent<Text>().text = "Hello K1ndess Robot, \nI’ve written a confession letter to my crush and I need you to deliver to him. He lives across the city and I’m too embarrassed to give it to him in person. I’ve poured my whole heart into that letter so please give it to him. Here take it. ";
-						_UIQuestname.GetComponent<Text>().text = "Someday You Will understand “Love”";
-						_Questdisplayname.GetComponent<Text>().text = "Someday You Will understand “Love”";
+						questUI.SetActive(true);
+						questInfoUI.GetComponent<Text>().text = "Hello K1ndess Robot, \nI’ve written a confession letter to my crush and I need you to deliver to him. He lives across the city and I’m too embarrassed to give it to him in person. I’ve poured my whole heart into that letter so please give it to him. Here take it. ";
+						questNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
+						currentQuestNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
 						QuestManager.ActiveQuestID = ID;
-						_Talk = true;
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						isTalking = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (ID == 4) {
-						_UIquest.SetActive(true);
-						_UIQuestinfo.GetComponent<Text>().text = "Greeting K1ndness Robot, \nMy current delivery boy has just broken his legs trying to balance 10 pizza boxes on his head. Don’t worry, the pizzas in the boxes were fine. Can you please take over for him and deliver this pizza to our next customer, Thank you.";
-						_UIQuestname.GetComponent<Text>().text = "PIZZA PIZZA!!!";
-						_Questdisplayname.GetComponent<Text>().text = "PIZZA PIZZA!!!";
+						questUI.SetActive(true);
+						questInfoUI.GetComponent<Text>().text = "Greeting K1ndness Robot, \nMy current delivery boy has just broken his legs trying to balance 10 pizza boxes on his head. Don’t worry, the pizzas in the boxes were fine. Can you please take over for him and deliver this pizza to our next customer, Thank you.";
+						questNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
+						currentQuestNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
 						QuestManager.ActiveQuestID = ID;
-						_Talk = true;
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						isTalking = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 
 					else if (100 == ID && QuestManager.ActiveQuestID == 0) {
-						_UIquest.SetActive(true);
-						_UIQuestinfo.GetComponent<Text>().text = "Oh boy, I can’t wait to read this, thank you ";
-                        _UIQuestname.GetComponent<Text>().text = "The Otaku’s needs ";
-                        _Questdisplayname.GetComponent<Text>().text = "The Otaku’s needs ";
-                        _Talk = true;
+						questUI.SetActive(true);
+						questInfoUI.GetComponent<Text>().text = "Oh boy, I can’t wait to read this, thank you ";
+                        questNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
+                        currentQuestNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
+                        isTalking = true;
                         questManager.rewardPlayer(ID);
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 
 					}
                     else if (101 == ID && QuestManager.ActiveQuestID == 1) {
-						_UIquest.SetActive(true);
+						questUI.SetActive(true);
 						QuestManager.isTakingQuest = false;
-                        _UIQuestinfo.GetComponent<Text>().text = "Oh my, you already 0.5347 second late for your lessons. Thank you K1ndness";
-                        _UIQuestname.GetComponent<Text>().text = "Bring my Son back home";
-                        _Questdisplayname.GetComponent<Text>().text = "Bring my Son back home";
-                        _Talk = true;
+                        questInfoUI.GetComponent<Text>().text = "Oh my, you already 0.5347 second late for your lessons. Thank you K1ndness";
+                        questNameUI.GetComponent<Text>().text = "Bring my Son back home";
+                        currentQuestNameUI.GetComponent<Text>().text = "Bring my Son back home";
+                        isTalking = true;
                         questManager.rewardPlayer(ID);
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (102 == ID && QuestManager.ActiveQuestID == 2) {
-						_UIquest.SetActive(true);
+						questUI.SetActive(true);
 						QuestManager.isTakingQuest = false;
-						_UIQuestinfo.GetComponent<Text>().text = "Thank you Kindness for deliver these to me. Because of you, my son is one step closer to becoming a billionaire.";
-						_UIQuestname.GetComponent<Text>().text = "Getting ahead in life";
-						_Questdisplayname.GetComponent<Text>().text = "Getting ahead in life";
-						_Talk = true;
+						questInfoUI.GetComponent<Text>().text = "Thank you Kindness for deliver these to me. Because of you, my son is one step closer to becoming a billionaire.";
+						questNameUI.GetComponent<Text>().text = "Getting ahead in life";
+						currentQuestNameUI.GetComponent<Text>().text = "Getting ahead in life";
+						isTalking = true;
 						questManager.rewardPlayer(ID);
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (103 == ID && QuestManager.ActiveQuestID == 3) {
-						_UIquest.SetActive(true);
+						questUI.SetActive(true);
 						QuestManager.isTakingQuest = false;
-						_UIQuestinfo.GetComponent<Text>().text = "Oh? A letter for me. I wonder who it’s from? ";
-						_UIQuestname.GetComponent<Text>().text = "Someday You Will understand “Love”";
-						_Questdisplayname.GetComponent<Text>().text = "Someday You Will understand “Love”";
-						_Talk = true;
+						questInfoUI.GetComponent<Text>().text = "Oh? A letter for me. I wonder who it’s from? ";
+						questNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
+						currentQuestNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
+						isTalking = true;
 						questManager.rewardPlayer(ID);
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 					else if (104 == ID && QuestManager.ActiveQuestID == 4) {
-						_UIquest.SetActive(true);
+						questUI.SetActive(true);
 						QuestManager.isTakingQuest = false;
-						_UIQuestinfo.GetComponent<Text>().text = "Wow! That was faster than usual. Thank you, I was dying to get try this pizza... Wait, where’s my drink???? How do you expect for me to eat this without my diet cola…";
-						_UIQuestname.GetComponent<Text>().text = "PIZZA PIZZA!!!";
-						_Questdisplayname.GetComponent<Text>().text = "PIZZA PIZZA!!!";
-						_Talk = true;
+						questInfoUI.GetComponent<Text>().text = "Wow! That was faster than usual. Thank you, I was dying to get try this pizza... Wait, where’s my drink???? How do you expect for me to eat this without my diet cola…";
+						questNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
+						currentQuestNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
+						isTalking = true;
 						questManager.rewardPlayer(ID);
-						_UIQuestname.SetActive(true);
-						_UIQuestinfo.SetActive(true);
-						_Talk = true;
+						questNameUI.SetActive(true);
+						questInfoUI.SetActive(true);
+						isTalking = true;
 					}
 				}
 
  //               _CommandDisplay.
-                _CommandDisplay.SetActive(false);
-                _CommandText.SetActive(false);
+                commandTextUI.SetActive(false);
+                commandLetterUI.SetActive(false);
 
             }
         }
@@ -307,8 +282,8 @@ public class Interact : MonoBehaviour
 
     void OnMouseExit()
     {
-        _CommandText.SetActive(false);
-        _CommandDisplay.SetActive(false);
+        commandLetterUI.SetActive(false);
+        commandTextUI.SetActive(false);
 //		_UIquest.SetActive(false);
 	}
 
