@@ -1047,8 +1047,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 1957359021512455455, guid: f9286521101d1dd4b9de8b6402ab9fc4,
         type: 3}
       propertyPath: m_TagString
@@ -1063,8 +1062,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Icon
       value: 
-      objectReference: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000,
-        type: 0}
+      objectReference: {fileID: 0}
     - target: {fileID: 6361950801902480509, guid: f9286521101d1dd4b9de8b6402ab9fc4,
         type: 3}
       propertyPath: m_Enabled
@@ -5467,6 +5465,11 @@ PrefabInstance:
       propertyPath: CrashDamage
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 6039646453785944933, guid: 398d67d74eebaa647964336b0214be3a,
+        type: 3}
+      propertyPath: LevelAudio
+      value: 
+      objectReference: {fileID: 1378988793}
     - target: {fileID: 6039646453785944939, guid: 398d67d74eebaa647964336b0214be3a,
         type: 3}
       propertyPath: UIquest
