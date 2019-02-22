@@ -280,7 +280,7 @@ public class Interact : MonoBehaviour
 					}
 				}
                 commandTextUI.SetActive(false);
-                commandLetterUI.SetActive(false)
+                commandLetterUI.SetActive(false);
             }
         }
     }
