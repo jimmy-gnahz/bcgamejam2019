@@ -4,28 +4,31 @@ using UnityEngine.Rendering.PostProcessing;
 public class PlayerGlidingPPChange : MonoBehaviour
 {
 	bool isFlying = false;
-	public PostProcessVolume volume;
-	[Range(0.01f,.1f)]
-	public float increment = 0.1f;
-	float focusDist;
+	// public PostProcessVolume volume;
+	public Camera cam;
+	//[Range(0.01f,.1f)]
+	public float increment = 1f;
+	float currentFov;
 
 	DepthOfField depthOfField;
     
 	public void SetIsFlying(bool b) {
 		isFlying = b;
 	}
-
-	private void Update() {
-		volume.profile.TryGetSettings(out depthOfField);
-		focusDist = depthOfField.focusDistance.value;
+	
+	void Update() {
+		//volume.profile.TryGetSettings(out depthOfField);
+		currentFov = cam.fieldOfView;
 		if (isFlying) {
-			float val = Mathf.Clamp(focusDist - increment, 2.6f, 3.05f);
-			if (Mathf.Abs(val - focusDist) > 0.01f)
-				depthOfField.focusDistance.value = val;
+			//Debug.Log("currentFov + increment = " + (currentFov + increment));
+			float val = Mathf.Clamp(currentFov + increment, 40f, 50f);
+			if (Mathf.Abs(val - currentFov) > 0.01f)
+				Debug.Log(val);
+				Camera.main.fieldOfView = 50;
 		}
 		else {
-			float val = Mathf.Clamp(focusDist + increment, 2.6f, 3.05f);
-			if (Mathf.Abs(val - focusDist) > 0.01f)
+			float val = Mathf.Clamp(currentFov - increment, 40f, 50f);
+			if (Mathf.Abs(val - currentFov) > 0.01f)
 				depthOfField.focusDistance.value = val;
 		}
 	}

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4055,7 +4055,7 @@ Camera:
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
   m_GateFitMode: 2
-  m_FocalLength: 50
+  m_FocalLength: 32.96973
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -5522,8 +5522,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44bb833631fe23c488c2b36ef410e538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: {fileID: 1591798103}
-  increment: 0.0224
+  cam: {fileID: 1591798101}
+  increment: 1
 --- !u!114 &6039646453478098359 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6039646453785944933, guid: 398d67d74eebaa647964336b0214be3a,

@@ -104,19 +104,26 @@ public class PlayerController : MonoBehaviour
         transform.localPosition += velocityVertical * Time.fixedDeltaTime;
         transform.Rotate(0, 0, -h * rotateSpeed);
 
-        if (v > 0)
+		playerAnimator.SetFloat("InputY", v);
+		playerAnimator.SetFloat("InputX", h);
+		Debug.Log("Set floats to input");
+		if (v > 0)
         {
             velocityPlanar = transform.TransformDirection(velocityPlanar);
             transform.localPosition += velocityPlanar * Time.fixedDeltaTime;
         }
+		else if (v > 0) {
+			velocityPlanar = transform.TransformDirection(velocityPlanar) * 0.5f;
+			transform.localPosition += velocityPlanar * Time.fixedDeltaTime;
+		}
 
-        int currentRotationY = (int)Mathf.Round(robot.localRotation.eulerAngles.y);
-        if (h > 0)
-            robot.localRotation = Quaternion.Euler(0, -135, 0);
-        else if (h < 0)
-            robot.localRotation = Quaternion.Euler(0, -45, 0);
-        else
-            robot.localRotation = Quaternion.Euler(0, -90, 0);
+			int currentRotationY = (int)Mathf.Round(robot.localRotation.eulerAngles.y);
+		if (h > 0) { }
+			//robot.localRotation = Quaternion.Euler(0, -135, 0);
+		else if (h < 0) { }
+		//robot.localRotation = Quaternion.Euler(0, -45, 0);
+		else { }
+            //robot.localRotation = Quaternion.Euler(0, -90, 0);
     }
 
     private void HandleSuicide()
