@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
 
     public bool isSuiciding = false;
     public bool isCrashing = false;
+    public float takeOffCd = 0.5f;
+    public float currentTakeOffCd = 0;
+
 
     public Transform robot;
     public bool onGround = true;
@@ -51,6 +54,8 @@ public class PlayerController : MonoBehaviour
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
+
+        HandleCd();
         
         if (isSuiciding) //jump backwards from a building
             HandleSuicide();
@@ -140,6 +145,11 @@ public class PlayerController : MonoBehaviour
         //Todo
     }
 
+    private void HandleCd()
+    {
+        currentTakeOffCd -= Time.fixedDeltaTime;
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (!onGround)//flying or upon a crash
@@ -157,7 +167,7 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.tag.Equals("floor") && !onGround)//landing
+        if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("floor")) && !onGround)//landing
         {
             if (isCrashing)
                 isCrashing = false;
@@ -170,6 +180,7 @@ public class PlayerController : MonoBehaviour
             }
 
             EnergyTimer = 0;
+            currentTakeOffCd = takeOffCd;
             onGround = true;
             player.useGravity = true;
             player.transform.Rotate(-90, 0, 0);
@@ -197,7 +208,7 @@ public class PlayerController : MonoBehaviour
     private void OnCollisionExit(Collision collision)
     {
         // taking off from a roof
-        if (collision.gameObject.tag.Equals("Roof"))
+        if (collision.gameObject.tag.Equals("Roof") && currentTakeOffCd < 0)
         {
             if (Input.GetAxis("Vertical") < 0)
             {

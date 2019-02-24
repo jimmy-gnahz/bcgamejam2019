@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7114938920953706716}
   - component: {fileID: 7488084232074604092}
   - component: {fileID: 2517392836628640141}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: rooftop
   m_TagString: Roof
   m_Icon: {fileID: 0}
@@ -267,16 +267,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cafcb060f2c3824aa05d089f3b3c40c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Distance: 0
-  _CommandDisplay: {fileID: 0}
-  _CommandText: {fileID: 0}
-  _UIquest: {fileID: 0}
-  _Player: {fileID: 0}
-  _Rooftop: {fileID: 4244254627343510852}
+  distToPlayer: 0
+  commandTextUI: {fileID: 0}
+  commandLetterUI: {fileID: 0}
+  questUI: {fileID: 0}
+  player: {fileID: 0}
+  rooftop: {fileID: 0}
   questManager: {fileID: 0}
-  _Talk: 0
   ID: 0
-  _UIQuestinfo: {fileID: 0}
-  _UIQuestname: {fileID: 0}
-  _Questdisplayname: {fileID: 0}
+  questInfoUI: {fileID: 0}
+  questNameUI: {fileID: 0}
+  currentQuestNameUI: {fileID: 0}
   buttons: []
