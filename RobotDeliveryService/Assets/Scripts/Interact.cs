@@ -146,11 +146,7 @@ public class Interact : MonoBehaviour
 					Debug.Log(" is ID : " + ID);
                     if (ID >= 100 && ID < 200)
                     {
-                        foreach (GameObject go in buttons)
-                        {
-                            go.SetActive(false);
-                        }
-
+                        buttons[1].SetActive(false);//handing in quests, please don't refuse....... just, you just keep being kind...
                     }
                     else if (ID < 100)
                     {
