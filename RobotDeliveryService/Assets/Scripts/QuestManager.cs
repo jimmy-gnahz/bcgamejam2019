@@ -10,16 +10,8 @@ public class QuestManager : MonoBehaviour
 	public GameObject lightB;
     public static int questsCompleted;
     public PlayerController playerObject;
-    public GameObject NPC000;
-    public GameObject NPC001;
-    public GameObject NPC002;
-    public GameObject NPC003;
-    public GameObject NPC004;
-    public GameObject NPC100;
-    public GameObject NPC101;
-    public GameObject NPC102;
-    public GameObject NPC103;
-    public GameObject NPC104;
+    public GameObject[] NPCFrom;
+    public GameObject[] NPCTo;
 
     private int firstQuestTriggerTime = 145;
     private int secondQuestTriggerTime = 145;
@@ -28,6 +20,7 @@ public class QuestManager : MonoBehaviour
 	private int fifthQuestTriggerTime = 145; //TODO
 
 	private void Start() {
+        hideNPCs();
 	}
 
 	public void HideLight() {
@@ -38,7 +31,8 @@ public class QuestManager : MonoBehaviour
 
 		if (isTakingQuest) {
 			lightB.SetActive(true);
-			switch (ActiveQuestID) {
+            lightB.transform.position = NPCTo[ActiveQuestID].transform.position;
+/*			switch (ActiveQuestID) {
 				case 0:
 					lightB.transform.position = NPC100.transform.position;
 					break;
@@ -57,33 +51,44 @@ public class QuestManager : MonoBehaviour
 				default:
 					break;
 			}
-		}
+*/		}
 
 
 
         if (GlobalTimer.theSeconds == firstQuestTriggerTime)
         {
-            NPC000.SetActive(true);
-            NPC100.SetActive(true);
+            NPCFrom[0].SetActive(true);
+            NPCTo[0].SetActive(true);
         }
 		if (GlobalTimer.theSeconds == secondQuestTriggerTime) {
-			NPC001.SetActive(true);
-			NPC101.SetActive(true);
-		}
+            NPCFrom[1].SetActive(true);
+            NPCTo[1].SetActive(true);
+        }
 		if (GlobalTimer.theSeconds == thirdQuestTriggerTime) {
-			NPC002.SetActive(true);
-			NPC102.SetActive(true);
-		}
+            NPCFrom[2].SetActive(true);
+            NPCTo[2].SetActive(true);
+        }
 		if (GlobalTimer.theSeconds == fourthQuestTriggerTime) {
-			NPC003.SetActive(true);
-			NPC103.SetActive(true);
-		}
+            NPCFrom[3].SetActive(true);
+            NPCTo[3].SetActive(true);
+        }
 		if (GlobalTimer.theSeconds == fifthQuestTriggerTime) {
-			NPC004.SetActive(true);
-			NPC104.SetActive(true);
-		}
+            NPCFrom[4].SetActive(true);
+            NPCTo[4].SetActive(true);
+        }
 	}
 
+    private void hideNPCs()
+    {
+        foreach(GameObject go in NPCFrom)
+        {
+            go.SetActive(false);
+        }
+        foreach (GameObject go in NPCTo)
+        {
+            go.SetActive(false);
+        }
+    }
     public void rewardPlayer(int ID)
     {
         questsCompleted += 1;
@@ -91,30 +96,30 @@ public class QuestManager : MonoBehaviour
         if (ID == 100)
         {
             incrementAmount = 50; //
-            NPC000.SetActive(false);
-            NPC100.SetActive(false);
+            NPCFrom[0].SetActive(false);
+            NPCTo[0].SetActive(false);
 
         } else if (ID == 101)
         {
             incrementAmount = 50;
-            NPC001.SetActive(false);
-            NPC101.SetActive(false);
+            NPCFrom[1].SetActive(false);
+            NPCTo[1].SetActive(false);
         }
-		else if (ID == 101) {
+		else if (ID == 102) {
 			incrementAmount = 50;
-			NPC001.SetActive(false);
-			NPC101.SetActive(false);
-		}
-		else if (ID == 101) {
+            NPCFrom[2].SetActive(false);
+            NPCTo[2].SetActive(false);
+        }
+		else if (ID == 103) {
 			incrementAmount = 50;
-			NPC001.SetActive(false);
-			NPC101.SetActive(false);
-		}
-		else if (ID == 101) {
+            NPCFrom[3].SetActive(false);
+            NPCTo[3].SetActive(false);
+        }
+		else if (ID == 104) {
 			incrementAmount = 40;
-			NPC001.SetActive(false);
-			NPC101.SetActive(false);
-		}
+            NPCFrom[4].SetActive(false);
+            NPCTo[4].SetActive(false);
+        }
 
 
 		playerObject.Energy += incrementAmount;
