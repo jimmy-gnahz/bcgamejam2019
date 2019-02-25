@@ -99,6 +99,7 @@ public class Interact : MonoBehaviour
         currentQuestNameUI.GetComponent<Text>().text = "Quest: " + questInfoUI.GetComponent<Text>().text;
         currentQuestNameUI.SetActive(true);
         QuestManager.isTakingQuest = true;
+        QuestManager.hasAQuest = true;
     }
 
     void DeniedQuest()

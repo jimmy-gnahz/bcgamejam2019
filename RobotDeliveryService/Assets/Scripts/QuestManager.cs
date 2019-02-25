@@ -7,6 +7,7 @@ public class QuestManager : MonoBehaviour
     public static int ActiveQuestID; //Giver's ID
     //public int InternalQuestNumber;
     public static bool isTakingQuest = false;
+    public static bool hasAQuest = false;
 	public GameObject lightB;
     public static int questsCompleted;
     public PlayerController playerObject;
@@ -23,14 +24,14 @@ public class QuestManager : MonoBehaviour
         hideNPCs();
 	}
 
-	public void HideLight() {
-		lightB.SetActive(false);
+	public void LightSwitch() {
+		lightB.SetActive(hasAQuest);
 	}
 	void FixedUpdate()
     {
-
-		if (isTakingQuest) {
-			lightB.SetActive(true);
+        LightSwitch();
+		if (hasAQuest) {
+//			lightB.SetActive(true);
             lightB.transform.position = NPCTo[ActiveQuestID].transform.position;
 /*			switch (ActiveQuestID) {
 				case 0:
@@ -131,7 +132,7 @@ public class QuestManager : MonoBehaviour
         playerObject.Energy += rewardEnergy;
         NPCFrom[ActiveQuestID].SetActive(false);
         NPCTo[ActiveQuestID].SetActive(false);
-
+        hasAQuest = false;
     }
 
     public void rewardPlayer()
