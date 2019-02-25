@@ -89,7 +89,7 @@ public class QuestManager : MonoBehaviour
             go.SetActive(false);
         }
     }
-    public void rewardPlayer(int ID)
+/*    public void rewardPlayer(int ID)
     {
         questsCompleted += 1;
         int incrementAmount = 0;
@@ -123,5 +123,19 @@ public class QuestManager : MonoBehaviour
 
 
 		playerObject.Energy += incrementAmount;
+    }
+*/
+    public void rewardPlayer(int rewardEnergy)
+    {
+
+        playerObject.Energy += rewardEnergy;
+        NPCFrom[ActiveQuestID].SetActive(false);
+        NPCTo[ActiveQuestID].SetActive(false);
+
+    }
+
+    public void rewardPlayer()
+    {
+        rewardPlayer(50);
     }
 }

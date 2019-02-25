@@ -162,7 +162,7 @@ public class Interact : MonoBehaviour
                         questNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
 						currentQuestNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
                         QuestManager.ActiveQuestID = ID;
-
+                        QuestManager.isTakingQuest = true;
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
@@ -175,8 +175,8 @@ public class Interact : MonoBehaviour
 						questNameUI.GetComponent<Text>().text = "Bring my Son back home";
                         currentQuestNameUI.GetComponent<Text>().text = "Bring my Son back home";
                         QuestManager.ActiveQuestID = ID;
-                        isTalking = true;
-						questNameUI.SetActive(true);
+                        QuestManager.isTakingQuest = true;
+                        questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
 					}
@@ -186,8 +186,8 @@ public class Interact : MonoBehaviour
 					  questNameUI.GetComponent<Text>().text = "Getting ahead in life";
 						currentQuestNameUI.GetComponent<Text>().text = "Getting ahead in life";
 						QuestManager.ActiveQuestID = ID;
-						isTalking = true;
-						questNameUI.SetActive(true);
+                        QuestManager.isTakingQuest = true;
+                        questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
 					}
@@ -197,8 +197,8 @@ public class Interact : MonoBehaviour
 						questNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
 						currentQuestNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
 						QuestManager.ActiveQuestID = ID;
-						isTalking = true;
-						questNameUI.SetActive(true);
+                        QuestManager.isTakingQuest = true;
+                        questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
 					}
@@ -208,8 +208,8 @@ public class Interact : MonoBehaviour
 						questNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
 						currentQuestNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
 						QuestManager.ActiveQuestID = ID;
-						isTalking = true;
-						questNameUI.SetActive(true);
+                        QuestManager.isTakingQuest = true;
+                        questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
 					}
@@ -219,8 +219,8 @@ public class Interact : MonoBehaviour
 						questInfoUI.GetComponent<Text>().text = "Oh boy, I can’t wait to read this, thank you ";
                         questNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
                         currentQuestNameUI.GetComponent<Text>().text = "The Otaku’s needs ";
-                        isTalking = true;
-                        questManager.rewardPlayer(ID);
+                        QuestManager.isTakingQuest = false;
+                        questManager.rewardPlayer();
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
@@ -232,8 +232,8 @@ public class Interact : MonoBehaviour
                         questInfoUI.GetComponent<Text>().text = "Oh my, you already 0.5347 second late for your lessons. Thank you K1ndness";
                         questNameUI.GetComponent<Text>().text = "Bring my Son back home";
                         currentQuestNameUI.GetComponent<Text>().text = "Bring my Son back home";
-                        isTalking = true;
-                        questManager.rewardPlayer(ID);
+                        QuestManager.isTakingQuest = false;
+                        questManager.rewardPlayer();
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
@@ -244,8 +244,8 @@ public class Interact : MonoBehaviour
 						questInfoUI.GetComponent<Text>().text = "Thank you Kindness for deliver these to me. Because of you, my son is one step closer to becoming a billionaire.";
 						questNameUI.GetComponent<Text>().text = "Getting ahead in life";
 						currentQuestNameUI.GetComponent<Text>().text = "Getting ahead in life";
-						isTalking = true;
-						questManager.rewardPlayer(ID);
+                        QuestManager.isTakingQuest = false;
+                        questManager.rewardPlayer();
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
@@ -256,8 +256,8 @@ public class Interact : MonoBehaviour
 						questInfoUI.GetComponent<Text>().text = "Oh? A letter for me. I wonder who it’s from? ";
 						questNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
 						currentQuestNameUI.GetComponent<Text>().text = "Someday You Will understand “Love”";
-						isTalking = true;
-						questManager.rewardPlayer(ID);
+                        QuestManager.isTakingQuest = false;
+                        questManager.rewardPlayer();
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
@@ -268,8 +268,8 @@ public class Interact : MonoBehaviour
 						questInfoUI.GetComponent<Text>().text = "Wow! That was faster than usual. Thank you, I was dying to get try this pizza... Wait, where’s my drink???? How do you expect for me to eat this without my diet cola…";
 						questNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
 						currentQuestNameUI.GetComponent<Text>().text = "PIZZA PIZZA!!!";
-						isTalking = true;
-						questManager.rewardPlayer(ID);
+                        QuestManager.isTakingQuest = false;
+                        questManager.rewardPlayer();
 						questNameUI.SetActive(true);
 						questInfoUI.SetActive(true);
 						isTalking = true;
