@@ -78,6 +78,23 @@ public class Interact : MonoBehaviour
                 currentQuestNameUI.GetComponent<Text>().text = "Quest: ";
                 currentQuestNameUI.SetActive(true);
                 QuestManager.isTakingQuest = false;
+                if (ID < 100)
+                {
+                    QuestManager.hasAQuest = true;
+                }
+                else if (ID >= 100 && ID < 200)    //talking to turn in npc
+                {
+                    Debug.Log("talking to turn in npc");
+                    if (QuestManager.hasAQuest) //with a quest
+                    {
+                        Debug.Log("with a quest");
+                        if (QuestManager.ActiveQuestID == ID - 100) //and the quest is right
+                        {
+                            Debug.Log("now we know the quest is finished");
+                            QuestManager.hasAQuest = false; //now we know the quest is finished
+                        }
+                    }
+                }
             }
         }
         else if ((Input.GetMouseButtonDown(0) || Input.GetButtonDown("Accept")) && isTalking)
@@ -99,7 +116,8 @@ public class Interact : MonoBehaviour
         currentQuestNameUI.GetComponent<Text>().text = "Quest: " + questInfoUI.GetComponent<Text>().text;
         currentQuestNameUI.SetActive(true);
         QuestManager.isTakingQuest = true;
-        QuestManager.hasAQuest = true;
+
+ 
     }
 
     void DeniedQuest()
@@ -281,7 +299,7 @@ public class Interact : MonoBehaviour
             }
         }
     }
-
+        
     void OnMouseExit()
     {
         commandLetterUI.SetActive(false);
