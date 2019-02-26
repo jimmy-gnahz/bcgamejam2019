@@ -17,7 +17,7 @@ public class PlayerGlidingPPChange : MonoBehaviour
 	}
 	
 	void Update() {
-		//volume.profile.TryGetSettings(out depthOfField);
+/*		//volume.profile.TryGetSettings(out depthOfField);
 		currentFov = cam.fieldOfView;
 		if (isFlying) {
 			//Debug.Log("currentFov + increment = " + (currentFov + increment));
@@ -31,5 +31,5 @@ public class PlayerGlidingPPChange : MonoBehaviour
 			if (Mathf.Abs(val - currentFov) > 0.01f)
 				depthOfField.focusDistance.value = val;
 		}
-	}
+*/	}
 }
