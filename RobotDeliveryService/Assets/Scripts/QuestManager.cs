@@ -8,7 +8,8 @@ public class QuestManager : MonoBehaviour
     //public int InternalQuestNumber;
     public static bool isTakingQuest = false;
     public static bool hasAQuest = false;
-	public GameObject lightB;
+	public GameObject lightbeam;
+	public MeshRenderer lightRenderer;
     public static int questsCompleted;
     public PlayerController playerObject;
     public GameObject[] NPCFrom;
@@ -25,14 +26,16 @@ public class QuestManager : MonoBehaviour
 	}
 
 	public void LightSwitch() {
-		lightB.SetActive(hasAQuest);
+		lightbeam.SetActive(hasAQuest);
+		lightRenderer.enabled = hasAQuest;
 	}
+
 	void FixedUpdate()
     {
         LightSwitch();
 		if (hasAQuest) {
 //			lightB.SetActive(true);
-            lightB.transform.position = NPCTo[ActiveQuestID].transform.position;
+            lightbeam.transform.position = NPCTo[ActiveQuestID].transform.position;
 /*			switch (ActiveQuestID) {
 				case 0:
 					lightB.transform.position = NPC100.transform.position;

@@ -189,7 +189,7 @@ public class Interact : MonoBehaviour
                     else if (ID == 1)
                     {
 						questUI.SetActive(true);
-                        questInfoUI.GetComponent<Text>().text = "Hello K1ndess Robot, /nPlease take this boy and bring him back home. He needs to attend his piano lessons in three minutes. He’s a busy boy and he’s already three months old…. THREE MONTHS!!!!...Driving him around just waste too much precious time where he could be studying math or practicing violin, or composing the next world famous symphony….Please bring him home safely and FAST!!!!!";
+                        questInfoUI.GetComponent<Text>().text = "Hello K1ndess Robot, \nPlease take this boy and bring him back home. He needs to attend his piano lessons in three minutes. He’s a busy boy and he’s already three months old…. THREE MONTHS!!!!...Driving him around just waste too much precious time where he could be studying math or practicing violin, or composing the next world famous symphony….Please bring him home safely and FAST!!!!!";
 
 						questNameUI.GetComponent<Text>().text = "Bring my Son back home";
                         currentQuestNameUI.GetComponent<Text>().text = "Bring my Son back home";
