@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC3 receive
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
-  receiveQuest: {fileID: 0}
-  receiveQuestDialouge: []
+  receiveQuest: {fileID: 11400000, guid: e202f55c87abcaf47a52dbad1bbb0df1, type: 2}
+  receiveQuestDialouge:
+  - 'Thank you Kindness for deliver these to me. '
+  - Because of you, my son is one step closer to becoming a billionaire.
   giveQuest: {fileID: 0}
   dialouges: []

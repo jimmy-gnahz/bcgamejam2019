@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC5 give
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
   receiveQuest: {fileID: 0}
   receiveQuestDialouge: []
-  giveQuest: {fileID: 0}
-  dialouges: []
+  giveQuest: {fileID: 11400000, guid: 26087dcda52f54a4380c60a844f67a23, type: 2}
+  dialouges:
+  - Greeting K1ndness Robot,
+  - 'My current delivery boy has just broken his legs trying to balance 10 pizza boxes
+    on his head. '
+  - "Don\u2019t worry, the pizzas in the boxes were fine. Can you please take over
+    for him and deliver this pizza to our next customer, Thank you."

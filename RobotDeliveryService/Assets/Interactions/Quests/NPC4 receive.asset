@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC4 receive
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
-  receiveQuest: {fileID: 0}
-  receiveQuestDialouge: []
+  receiveQuest: {fileID: 11400000, guid: 6d907dd5b4cbeeb4a9eb3b333306e91c, type: 2}
+  receiveQuestDialouge:
+  - "Oh? A letter for me. I wonder who it\u2019s from?"
   giveQuest: {fileID: 0}
   dialouges: []

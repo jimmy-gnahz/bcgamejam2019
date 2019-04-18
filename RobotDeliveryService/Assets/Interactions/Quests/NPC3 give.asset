@@ -12,9 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC3 give
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
   receiveQuest: {fileID: 0}
   receiveQuestDialouge: []
-  giveQuest: {fileID: 0}
-  dialouges: []
+  giveQuest: {fileID: 11400000, guid: e202f55c87abcaf47a52dbad1bbb0df1, type: 2}
+  dialouges:
+  - Hello K1ndess Robot,
+  - A package from the post office has just arrived and I need you to deliver it to
+    me immediately.
+  - "Just to make sure you grab everything, the package contains variety textbooks
+    such as Advance Vector Calculus, Theoretical and Experimental Physics, Quantum
+    Computing\u2026"
+  - "My dear son needs to start early so when he grows up, he\u2019ll be set to become
+    a billionaire."
+  - "Just imagine it, my son, the next Bill Gates\u2026"
+  - NOW HURRY UP, THE MORE TIME YOU WASTE, THE LESS TIME FOR MY SON TO PREPARE FOR
+    HIS LIFE GOAL!!!!!!!!

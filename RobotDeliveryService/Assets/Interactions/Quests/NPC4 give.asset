@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC4 give
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
   receiveQuest: {fileID: 0}
   receiveQuestDialouge: []
-  giveQuest: {fileID: 0}
-  dialouges: []
+  giveQuest: {fileID: 11400000, guid: 6d907dd5b4cbeeb4a9eb3b333306e91c, type: 2}
+  dialouges:
+  - Hello K1ndess Robot!
+  - "I\u2019ve written a confession letter to my crush and I need you to deliver to
+    him. "
+  - "He lives across the city and I\u2019m too embarrassed to give it to him in person.
+    (>///<)"
+  - "I\u2019ve poured my whole heart into that letter so please give it to him. "

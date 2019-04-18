@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 51f5e9a8a98aebb4da0658ace558f4c3, type: 3}
-  m_Name: NPC4
+  m_Name: NPC5
   m_EditorClassIdentifier: 
-  questName: "The Otaku\u2019s Needs"
-  packageDescription: A picture book with pixelated cover
+  questName: PIZZA PIZZA!!!
+  packageDescription: PIZZA PIZZA!!!
   energy: 50
   doGiveRewards: 1

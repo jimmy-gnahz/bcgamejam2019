@@ -12,9 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC2 give
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
   receiveQuest: {fileID: 0}
   receiveQuestDialouge: []
-  giveQuest: {fileID: 0}
-  dialouges: []
+  giveQuest: {fileID: 11400000, guid: 87fd82218dfeb0045960b88d3f1b001b, type: 2}
+  dialouges:
+  - Hello, K1ndess Robot!
+  - 'Please take this boy and bring him back home. '
+  - "He needs to attend his piano lessons in three minutes. He\u2019s a busy boy and
+    he\u2019s already three months old\u2026. THREE MONTHS!!!!..."
+  - "Driving him around just waste too much precious time when he could be studying
+    math or practicing violin, or composing the next world famous symphony\u2026."
+  - Please bring him home safely and FAST!!!!!

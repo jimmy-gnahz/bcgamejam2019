@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC5 receive
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
-  receiveQuest: {fileID: 0}
-  receiveQuestDialouge: []
+  receiveQuest: {fileID: 11400000, guid: 26087dcda52f54a4380c60a844f67a23, type: 2}
+  receiveQuestDialouge:
+  - Wow! That was faster than usual.
+  - ' Thank you, I was dying to get try this pizza... '
+  - "Wait, where\u2019s my drink???? How do you expect for me to eat this without
+    my diet cola\u2026"
   giveQuest: {fileID: 0}
   dialouges: []

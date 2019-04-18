@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96d68a65cbd1aac4cb9d8a849cd25421, type: 3}
   m_Name: NPC2 receive
   m_EditorClassIdentifier: 
-  selectText: 
+  selectText: Talk
   npcName: new NPC
-  receiveQuest: {fileID: 0}
-  receiveQuestDialouge: []
+  receiveQuest: {fileID: 11400000, guid: 87fd82218dfeb0045960b88d3f1b001b, type: 2}
+  receiveQuestDialouge:
+  - '(To the boy) Oh my, you already 0.5347 second late for your lessons. '
+  - Thank you K1ndness.
   giveQuest: {fileID: 0}
   dialouges: []

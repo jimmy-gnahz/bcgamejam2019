@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51f5e9a8a98aebb4da0658ace558f4c3, type: 3}
   m_Name: NPC2
   m_EditorClassIdentifier: 
-  questName: "The Otaku\u2019s Needs"
-  packageDescription: A picture book with pixelated cover
+  questName: Bring my Son Back Home
+  packageDescription: Bring my Son Back Home
   energy: 50
   doGiveRewards: 1

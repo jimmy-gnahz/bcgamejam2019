@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NPC0 give
   m_EditorClassIdentifier: 
   selectText: Talk
-  npcName: new NPC
+  npcName: NPC Name Placeholder
   receiveQuest: {fileID: 0}
   receiveQuestDialouge: []
   giveQuest: {fileID: 11400000, guid: 82fb81a90e0a2a041a02ec0989244389, type: 2}
