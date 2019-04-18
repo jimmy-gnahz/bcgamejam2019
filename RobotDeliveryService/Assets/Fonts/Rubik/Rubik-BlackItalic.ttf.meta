@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6268800ff3b0b0c4f9324a74db99b98a
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Rubik Black
+  fontNames:
+  - Rubik Black
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 53458807aa618614995f9270193137df, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

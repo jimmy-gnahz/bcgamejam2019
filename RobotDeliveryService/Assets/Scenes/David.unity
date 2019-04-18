@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1833,7 +1833,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059158878}
-  m_LocalRotation: {x: -0.0043486343, y: 0.9931586, z: -0.10987232, w: -0.039310563}
+  m_LocalRotation: {x: -0.004348892, y: 0.9931586, z: -0.10987232, w: -0.039310597}
   m_LocalPosition: {x: 25.185703, y: -0.38718224, z: 25.903904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3610,11 +3610,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7120167435307482561, guid: 6d26896899ccf044dbe62b2b83403e9e,
-        type: 3}
-      propertyPath: m_Name
-      value: Lines
-      objectReference: {fileID: 0}
     - target: {fileID: 7962506967221989402, guid: 6d26896899ccf044dbe62b2b83403e9e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3669,6 +3664,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7120167435307482561, guid: 6d26896899ccf044dbe62b2b83403e9e,
+        type: 3}
+      propertyPath: m_Name
+      value: Lines
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6d26896899ccf044dbe62b2b83403e9e, type: 3}
@@ -3782,11 +3782,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 7193315335939277564, guid: 546117ee17856464b9ef40c66e750542,
-        type: 3}
-      propertyPath: m_Name
-      value: yield sign
-      objectReference: {fileID: 0}
     - target: {fileID: 6142158320006220456, guid: 546117ee17856464b9ef40c66e750542,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3841,6 +3836,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7193315335939277564, guid: 546117ee17856464b9ef40c66e750542,
+        type: 3}
+      propertyPath: m_Name
+      value: yield sign
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 546117ee17856464b9ef40c66e750542, type: 3}
@@ -4285,7 +4285,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591798098}
-  m_LocalRotation: {x: -0.0043486343, y: 0.9931586, z: -0.10987232, w: -0.039310563}
+  m_LocalRotation: {x: -0.004348892, y: 0.9931586, z: -0.10987232, w: -0.039310597}
   m_LocalPosition: {x: 38.195194, y: 2.8, z: -35.21564}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4581,7 +4581,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1668300587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4964,13 +4964,13 @@ MonoBehaviour:
   - {fileID: 1059158879}
   - {fileID: 1963312713}
   m_Instructions:
-  - m_FullHash: -1899209660
+  - m_FullHash: -771387382
     m_VirtualCamera: {fileID: 1059158879}
-    m_ActivateAfter: 1
+    m_ActivateAfter: 0
     m_MinDuration: 0
-  - m_FullHash: 1319883190
+  - m_FullHash: -925499122
     m_VirtualCamera: {fileID: 1963312713}
-    m_ActivateAfter: 1
+    m_ActivateAfter: 0
     m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 2
@@ -4989,18 +4989,6 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: -1899209660
     m_ParentHash: 756556552
-  - m_Hash: 1319883190
-    m_ParentHash: 756556552
-  - m_Hash: 1276636351
-    m_ParentHash: 1319883190
-  - m_Hash: 2011915025
-    m_ParentHash: 1319883190
-  - m_Hash: -410753258
-    m_ParentHash: 1319883190
-  - m_Hash: 65718959
-    m_ParentHash: 1319883190
-  - m_Hash: 1015021562
-    m_ParentHash: 1319883190
 --- !u!4 &1792685177
 Transform:
   m_ObjectHideFlags: 0
@@ -5388,7 +5376,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963312712}
-  m_LocalRotation: {x: -0.009452111, y: 0.9702609, z: -0.23880857, w: -0.03840422}
+  m_LocalRotation: {x: -0.009452398, y: 0.9702609, z: -0.23880857, w: -0.0384043}
   m_LocalPosition: {x: 25.185703, y: 1.112818, z: 25.903904}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
