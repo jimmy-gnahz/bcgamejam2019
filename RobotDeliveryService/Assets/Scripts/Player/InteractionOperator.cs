@@ -46,4 +46,11 @@ public class InteractionOperator : MonoBehaviour {
 			selectedInteractable.Interact(gameObject);
 	}
 
+	public Transform FindAcceptQuestTarget(Quest q) {
+		foreach (Interactable i in Interactables) {
+			if (i.AcceptQuest(q))
+				return i.transform;
+		}
+		return null;
+	}
 }

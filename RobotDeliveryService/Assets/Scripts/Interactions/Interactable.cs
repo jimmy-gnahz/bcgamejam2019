@@ -21,6 +21,18 @@ public class Interactable : MonoBehaviour
 		return interaction.canInteract();
 	}
 
+	public bool AcceptQuest(Quest q) {
+		try {
+			Interaction_Dialouge i = (Interaction_Dialouge) interaction;
+			if (!i) return false;
+			return i.AcceptsQuest(q);
+		}
+		catch (System.Exception) {
+
+			throw;
+		}
+	}
+
 	public void ClearInteraction() {
 		interaction = null;
 	}

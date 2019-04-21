@@ -41,4 +41,10 @@ public class Interaction_Dialouge : Interaction {
 		}
 		return false;
 	}
+
+	public bool AcceptsQuest(Quest q) {
+		if (receiveQuest && receiveQuest == q)
+			return true;
+		return false;
+	}
 }

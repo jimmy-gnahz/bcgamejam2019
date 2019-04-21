@@ -16,7 +16,7 @@ MonoBehaviour:
   npcName: new NPC
   receiveQuest: {fileID: 11400000, guid: 82fb81a90e0a2a041a02ec0989244389, type: 2}
   receiveQuestDialouge:
-  - 'thanks you! '
-  - Now try to interact with thte building
+  - 'Thanks you! '
+  - Now try to interact with the buildings!
   giveQuest: {fileID: 0}
   dialouges: []
